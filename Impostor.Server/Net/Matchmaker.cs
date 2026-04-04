@@ -28,10 +28,7 @@ namespace Impostor.Server.Net
         private readonly AuthConfig _authConfig;
         private readonly DtlsCertificateService _certService;
 
-        // IpAuth 模式：IP → FriendCode（NextImpostor 原版，后连者覆盖）
         private readonly IpFriendCodeCache _ipCache;
-
-        // NonceAuth 模式：Nonce → FriendCode（精确匹配，无竞争）
         private readonly FriendCodeNonceStore _nonceStore;
 
         private UdpConnectionListener? _gameListener;
@@ -68,7 +65,6 @@ namespace Impostor.Server.Net
                 _ => throw new InvalidOperationException(),
             };
 
-            // 主游戏 UDP 监听器
             _gameListener = new UdpConnectionListener(ipEndPoint, _readerPool, mode)
             {
                 NewConnection = OnNewConnection,
@@ -76,7 +72,6 @@ namespace Impostor.Server.Net
             await _gameListener.StartAsync();
             _logger.LogInformation("[Matchmaker] UDP game listener started on {EndPoint}", ipEndPoint);
 
-            // DTLS 认证监听器 (port+2) — EnableIpAuth 或 EnableNonceAuth 时启动
             if (_authConfig.IsAuthEnabled)
             {
                 var authEndPoint = new IPEndPoint(ipEndPoint.Address, ipEndPoint.Port + 2);
@@ -119,9 +114,6 @@ namespace Impostor.Server.Net
                 await _dtlsAuthListener.DisposeAsync();
         }
 
-        // ── DTLS 认证回调 ────────────────────────────────────────────────────
-        // Among Us 客户端在连接游戏端口前先连 port+2 发送 FriendCode。
-        // 格式：GameVersion(4B) | Platform(1B) | matchmakerToken(string) | FriendCode(string)
         private async ValueTask OnDtlsAuthConnection(NewConnectionEventArgs e)
         {
             var clientIp = NormalizeIp(e.Connection.EndPoint.Address);
@@ -144,7 +136,6 @@ namespace Impostor.Server.Net
 
                 if (_authConfig.EnableNonceAuth)
                 {
-                    // NonceAuth 模式：颁发 Nonce，存 Nonce→FriendCode
                     nonce = _nonceStore.Issue(friendCode ?? string.Empty, clientIp);
                     _logger.LogInformation(
                         "[NonceAuth] DTLS from {Ip}: FriendCode={FriendCode}, issued nonce 0x{Nonce:X8}",
@@ -152,20 +143,15 @@ namespace Impostor.Server.Net
                 }
                 else
                 {
-                    // IpAuth 模式（EnableIpAuth = true）：直接覆盖写入 IP→FriendCode
-                    // 与 NextImpostor 原版行为完全一致（后连者覆盖）
                     _ipCache.Set(rawIp, friendCode ?? string.Empty);
                     _logger.LogInformation(
                         "[IpAuth] DTLS from {Ip}: FriendCode={FriendCode} (stored by IP, overwrite)",
                         clientIp, friendCode);
 
-                    // IpAuth 下也需要给客户端回一个 Nonce，否则客户端握手会卡住
-                    // 此 Nonce 在 ClientManager 中不被使用（IpAuth 走 IP 查找路径）
                     nonce = (uint)(DateTime.UtcNow.Ticks & 0xFFFF_FFFF);
                     if (nonce == 0) nonce = 1;
                 }
 
-                // 回复客户端 tag=1 消息 + uint32 Nonce
                 using var writer = MessageWriter.Get(MessageType.Reliable);
                 writer.StartMessage(1);
                 writer.Write(nonce);
@@ -178,7 +164,6 @@ namespace Impostor.Server.Net
             }
         }
 
-        // ── UDP 游戏连接回调 ──────────────────────────────────────────────────
         private async ValueTask OnNewConnection(NewConnectionEventArgs e)
         {
             HandshakeC2S.Deserialize(

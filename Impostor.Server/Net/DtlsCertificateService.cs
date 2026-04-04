@@ -8,13 +8,6 @@ using Microsoft.Extensions.Options;
 
 namespace Impostor.Server.Net
 {
-    /// <summary>
-    /// 管理 DTLS 认证监听器所需的 RSA 证书。
-    ///
-    /// EnableNonceAuth 模式：从 AuthConfig.DtlsCertFile / DtlsKeyFile 加载管理员证书；
-    ///                       若文件缺失则回退到自动生成。
-    /// EnableIpAuth 模式：   自动生成/复用自签名证书，持久化到 dtls_cert.pem + dtls_key.pem。
-    /// </summary>
     internal sealed class DtlsCertificateService
     {
         private readonly ILogger<DtlsCertificateService> _logger;
@@ -32,7 +25,6 @@ namespace Impostor.Server.Net
             _config = config.Value;
         }
 
-        /// <summary>获取（或创建）包含私钥的 DTLS 证书。</summary>
         public X509Certificate2 GetOrCreateCertificate()
         {
             if (_certificate != null)
@@ -40,7 +32,6 @@ namespace Impostor.Server.Net
                 return _certificate;
             }
 
-            // EnableNonceAuth：优先从配置路径加载管理员证书
             if (_config.EnableNonceAuth
                 && !string.IsNullOrWhiteSpace(_config.DtlsCertFile)
                 && !string.IsNullOrWhiteSpace(_config.DtlsKeyFile))
@@ -70,7 +61,6 @@ namespace Impostor.Server.Net
                 }
             }
 
-            // EnableIpAuth（或 EnableNonceAuth 回退）：从磁盘复用已有自签名证书
             if (File.Exists(AutoCertFile) && File.Exists(AutoKeyFile))
             {
                 try
@@ -91,7 +81,6 @@ namespace Impostor.Server.Net
                 }
             }
 
-            // 生成新的自签名证书
             _certificate = GenerateSelfSigned();
             SaveToDisk(_certificate, AutoCertFile, AutoKeyFile);
             _logger.LogInformation(

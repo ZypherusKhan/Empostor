@@ -6,10 +6,6 @@ using Microsoft.Extensions.Logging;
 
 namespace Impostor.Server.Net.Auth
 {
-    /// <summary>
-    /// NextImpostor 原版 IP → FriendCode 映射。
-    /// 后一个来自相同 IP 的连接会覆盖前一个（即原版竞争行为，保留）。
-    /// </summary>
     internal sealed class IpFriendCodeCache : IDisposable
     {
         private readonly ILogger<IpFriendCodeCache> _logger;
@@ -24,9 +20,6 @@ namespace Impostor.Server.Net.Auth
                 TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(15));
         }
 
-        /// <summary>
-        /// 存储 IP → FriendCode（覆盖写入，保留 NextImpostor 原版行为）。
-        /// </summary>
         public void Set(IPAddress clientIp, string friendCode)
         {
             var key = Normalize(clientIp);
@@ -41,9 +34,6 @@ namespace Impostor.Server.Net.Auth
             _logger.LogDebug("[IpAuth] Set IP={Ip} → FriendCode={FriendCode}", key, friendCode);
         }
 
-        /// <summary>
-        /// 按 IP 查找 FriendCode，找不到或已过期则返回 null。
-        /// </summary>
         public string? Get(IPAddress clientIp)
         {
             var key = Normalize(clientIp);

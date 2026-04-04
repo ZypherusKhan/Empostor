@@ -5,25 +5,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Impostor.Server.Net.Auth
 {
-    /// <summary>
-    /// 线程安全的 Nonce ↔ FriendCode 映射表，用于解决 NextImpostor IP 认证的竞争问题。
-    ///
-    /// 问题根源：
-    ///   NextImpostor 原版用 IP → FriendCode 的覆盖映射。
-    ///   同一 NAT 地址后的多玩家同时连接时，后者覆盖前者，导致 FriendCode 对调。
-    ///
-    /// 修复方案：
-    ///   每个 DTLS 会话分配一个唯一随机 uint32 Nonce，发回客户端。
-    ///   客户端在 UDP 握手的 LastNonce 字段中携带该值。
-    ///   服务端以 Nonce 为 key 精确查找 FriendCode，消费后立即删除（一次性）。
-    ///   即使 100 个玩家共用同一 IP，每人有唯一 Nonce，绝无冲突。
-    /// </summary>
     internal sealed class FriendCodeNonceStore : IDisposable
     {
         private readonly ILogger<FriendCodeNonceStore> _logger;
         private readonly int _ttlSeconds;
 
-        // Nonce → (FriendCode, clientIp, issuedAt)
         private readonly ConcurrentDictionary<uint, NonceEntry> _store = new();
 
         private readonly Timer _cleanupTimer;
@@ -36,10 +22,6 @@ namespace Impostor.Server.Net.Auth
                 TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(15));
         }
 
-        /// <summary>
-        /// 为一个 DTLS 会话颁发 Nonce，绑定 FriendCode。
-        /// 返回分配的 Nonce，服务端需将其发回客户端（tag=1 消息）。
-        /// </summary>
         public uint Issue(string friendCode, string clientIp)
         {
             uint nonce;
@@ -63,10 +45,6 @@ namespace Impostor.Server.Net.Auth
             return nonce;
         }
 
-        /// <summary>
-        /// 消费一个 Nonce：找到后立即从 store 删除（一次性使用），返回对应 FriendCode。
-        /// 若 Nonce 无效、已过期或已使用，返回 null。
-        /// </summary>
         public string? Consume(uint nonce)
         {
             if (nonce == 0)
