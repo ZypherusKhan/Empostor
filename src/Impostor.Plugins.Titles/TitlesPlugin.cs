@@ -13,7 +13,7 @@ public sealed class TitlesPlugin : PluginBase
 
     public override ValueTask EnableAsync()
     {
-        _logger.LogInformation("[Titles] Plugin enabled. Use /weartitle <text> in chat to set a title.");
+        _logger.LogInformation("[Titles] Plugin enabled.");
         return default;
     }
 

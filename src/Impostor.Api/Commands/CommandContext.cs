@@ -14,9 +14,7 @@ namespace Impostor.Api.Commands
         public required IInnerPlayerControl PlayerControl { get; init; }
         public required IGame Game { get; init; }
         public required LanguageService Lang { get; init; }
-
-        public Impostor.Api.Innersloth.Language SenderLanguage => Sender.Client.Language;
-
+        public Innersloth.Language SenderLanguage => Sender.Client.Language;
         public LanguageString GetString(string key)
             => Lang.Get(key, SenderLanguage);
     }

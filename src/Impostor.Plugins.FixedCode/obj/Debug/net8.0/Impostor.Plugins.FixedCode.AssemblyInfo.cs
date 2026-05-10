@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Impostor.Plugins.FixedCode")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.10.6.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.10.6-dev+70611aa4db4427bb7ba4334ffe958068c2a1ad63")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.10.6-dev+bf1c5a4b01ef931c2b3ad1f9208e3d2fa2e6d738")]
 [assembly: System.Reflection.AssemblyProductAttribute("Impostor.Plugins.FixedCode")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Impostor.Plugins.FixedCode")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.10.6.0")]

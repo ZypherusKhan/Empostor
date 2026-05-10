@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Impostor,Next-Fast")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.2.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2-dev+fde6e33d538c72cd907bcde57636beb76528af70")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2-dev+bf1c5a4b01ef931c2b3ad1f9208e3d2fa2e6d738")]
 [assembly: System.Reflection.AssemblyProductAttribute("Next.Hazel.Abstractions")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Next.Hazel.Abstractions")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.2.0")]

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AeonLucid")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70611aa4db4427bb7ba4334ffe958068c2a1ad63")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf1c5a4b01ef931c2b3ad1f9208e3d2fa2e6d738")]
 [assembly: System.Reflection.AssemblyProductAttribute("Impostor.Plugins.Example")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Example")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

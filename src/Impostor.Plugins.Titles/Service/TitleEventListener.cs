@@ -2,7 +2,6 @@ using System;
 using System.Threading.Tasks;
 using Impostor.Api.Events;
 using Impostor.Api.Events.Player;
-using Impostor.Server.Commands;
 using Microsoft.Extensions.Logging;
 
 namespace Impostor.Plugins.Titles.Service;

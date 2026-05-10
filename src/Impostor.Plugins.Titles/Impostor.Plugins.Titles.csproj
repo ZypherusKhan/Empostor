@@ -6,6 +6,5 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Impostor.Api\Impostor.Api.csproj" />
-    <ProjectReference Include="..\Impostor.Server\Impostor.Server.csproj" />
   </ItemGroup>
 </Project>

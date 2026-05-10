@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Impostor.Plugins.FixedCode"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Impostor.Plugins.FriendCodeValidator", "Impostor.Plugins.FriendCodeValidator\Impostor.Plugins.FriendCodeValidator.csproj", "{70CD7AC9-1DE3-CD23-602A-EFD504B91450}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Impostor.Plugins.Titles", "Impostor.Plugins.Titles\Impostor.Plugins.Titles.csproj", "{3038597E-E1A1-2958-1CF7-C4203A85F424}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{70CD7AC9-1DE3-CD23-602A-EFD504B91450}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70CD7AC9-1DE3-CD23-602A-EFD504B91450}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70CD7AC9-1DE3-CD23-602A-EFD504B91450}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3038597E-E1A1-2958-1CF7-C4203A85F424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3038597E-E1A1-2958-1CF7-C4203A85F424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3038597E-E1A1-2958-1CF7-C4203A85F424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3038597E-E1A1-2958-1CF7-C4203A85F424}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +83,7 @@ Global
 		{5F7A70A7-1FE9-0B48-FFC1-C0F88BE0547A} = {A42D36F0-B635-4BBD-9F96-97AA17B1574A}
 		{C583BD2A-1468-99CA-4E3D-CBDA4D2EDB9F} = {E0009DCB-32A6-45C4-A06C-7F62D4091A29}
 		{70CD7AC9-1DE3-CD23-602A-EFD504B91450} = {E0009DCB-32A6-45C4-A06C-7F62D4091A29}
+		{3038597E-E1A1-2958-1CF7-C4203A85F424} = {E0009DCB-32A6-45C4-A06C-7F62D4091A29}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DAF5625C-7E46-4DCC-AF2C-11D20D965454}
