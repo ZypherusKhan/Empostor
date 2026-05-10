@@ -113,3 +113,15 @@ C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Server\obj\Debug\net8.
 C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Server\obj\Debug\net8.0\Impostor.Server.pdb
 C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Server\obj\Debug\net8.0\Impostor.Server.genruntimeconfig.cache
 C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Server\obj\Debug\net8.0\ref\Impostor.Server.dll
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Debug\net8.0\Impostor.Server.csproj.AssemblyReference.cache
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Debug\net8.0\rpswa.dswa.cache.json
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Debug\net8.0\Impostor.Server.GeneratedMSBuildEditorConfig.editorconfig
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Debug\net8.0\Impostor.Server.AssemblyInfoInputs.cache
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Debug\net8.0\Impostor.Server.AssemblyInfo.cs
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Debug\net8.0\Impostor.Server.csproj.CoreCompileInputs.cache
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Debug\net8.0\Impostor.Server.MvcApplicationPartsAssemblyInfo.cache
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Debug\net8.0\Impostor.Server.sourcelink.json
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Debug\net8.0\Impostor.Server.dll
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Debug\net8.0\refint\Impostor.Server.dll
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Debug\net8.0\Impostor.Server.xml
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Debug\net8.0\Impostor.Server.pdb

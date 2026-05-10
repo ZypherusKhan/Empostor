@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Impostor.Api.Events.Managers;
 using Impostor.Api.Games;
@@ -130,7 +131,7 @@ namespace Impostor.Server.Net.Inner.Objects
 
             var owner = Game.Players.FirstOrDefault(p => p.Client.Id == ClientId);
             writer.Write(owner?.Client.FriendCode ?? string.Empty);
-            writer.Write(owner?.Client.Puid ?? string.Empty);
+            writer.Write(string.Empty);
             return new ValueTask<bool>(true);
         }
 

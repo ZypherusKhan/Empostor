@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using Impostor.Api.Config;
 using Impostor.Api.Innersloth;
 using Impostor.Api.Net.Custom;

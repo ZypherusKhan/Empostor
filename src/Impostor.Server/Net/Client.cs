@@ -3,21 +3,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Impostor.Api;
 using Impostor.Api.Config;
+using Impostor.Api.Events.Managers;
 using Impostor.Api.Games;
+using Impostor.Api.Innersloth;
 using Impostor.Api.Innersloth;
 using Impostor.Api.Net;
 using Impostor.Api.Net.Custom;
 using Impostor.Api.Net.Messages;
 using Impostor.Api.Net.Messages.C2S;
 using Impostor.Api.Net.Messages.S2C;
-using Impostor.Api.Innersloth;
-using Impostor.Hazel;
-using Impostor.Api.Events.Managers;
 using Impostor.Server.Events.Player;
 using Impostor.Server.Net.Manager;
 using Impostor.Server.Service.Admin;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using Next.Hazel;
 
 namespace Impostor.Server.Net
 {
@@ -432,9 +433,9 @@ namespace Impostor.Server.Net
             var reportedClient = _clientManager.Clients.FirstOrDefault(c => c.Id == reportedClientId);
 
             _logger.LogWarning(
-                "[Report] {Reporter} ({ReporterPuid}) reported {Reported} ({ReportedPuid}) Reason={Reason} Game={Game}",
-                Name, string.IsNullOrEmpty(Puid) ? "unknown" : Puid,
-                reportedClient?.Name ?? "unknown", reportedClient?.Puid ?? "unknown",
+                "[Report] {Reporter} ({ReporterFriendCode}) reported {Reported} ({ReportedFriendCode}) Reason={Reason} Game={Game}",
+                Name, string.IsNullOrEmpty(reportedClient.FriendCode) ? "unknown" : FriendCode,
+                reportedClient?.Name ?? "unknown", reportedClient?.FriendCode ?? "unknown",
                 reason, gameCode);
 
             var outcome = ReportOutcome.NotReportedUnknown;
@@ -450,10 +451,8 @@ namespace Impostor.Server.Net
                 GameCode = gameCode.ToString(),
                 ReporterName = Name,
                 ReporterFriendCode = FriendCode,
-                ReporterPuid = Puid,
                 ReportedName = reportedClient?.Name,
                 ReportedFriendCode = reportedClient?.FriendCode,
-                ReportedPuid = reportedClient?.Puid,
                 Reason = reason,
                 Outcome = outcome,
             });

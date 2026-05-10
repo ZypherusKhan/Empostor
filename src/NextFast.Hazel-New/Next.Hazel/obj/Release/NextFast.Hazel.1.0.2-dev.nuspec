@@ -7,7 +7,7 @@
     <license type="expression">MIT</license>
     <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
     <description>Package Description</description>
-    <repository type="git" url="https://github.com/Next-Fast/Impostor.Hazel" commit="c3d56c942b21f6363d028c6a2433d04be0690c34" />
+    <repository type="git" url="https://github.com/Next-Fast/Impostor.Hazel" commit="b2c5945e9d39c6daeda9cfeb55841875a80dc2cb" />
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="NextFast.Hazel.Abstractions" version="1.0.2-dev" exclude="Build,Analyzers" />
@@ -19,6 +19,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\Users\ASUS\source\repos\Empostor\Empostor\src\NextFast.Hazel-New\Next.Hazel\bin\Release\net8.0\Next.Hazel.dll" target="lib\net8.0\Next.Hazel.dll" />
+    <file src="E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel\bin\Release\net8.0\Next.Hazel.dll" target="lib\net8.0\Next.Hazel.dll" />
   </files>
 </package>

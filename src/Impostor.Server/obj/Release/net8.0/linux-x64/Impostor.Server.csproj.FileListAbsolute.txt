@@ -111,3 +111,15 @@ C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Server\obj\Release\net
 C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Server\obj\Release\net8.0\linux-x64\Impostor.073F6B64.Up2Date
 C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Server\obj\Release\net8.0\linux-x64\Impostor.Server.genruntimeconfig.cache
 C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Server\obj\Release\net8.0\linux-x64\ref\Impostor.Server.dll
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Release\net8.0\linux-x64\Impostor.Server.csproj.AssemblyReference.cache
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Release\net8.0\linux-x64\rpswa.dswa.cache.json
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Release\net8.0\linux-x64\Impostor.Server.GeneratedMSBuildEditorConfig.editorconfig
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Release\net8.0\linux-x64\Impostor.Server.AssemblyInfoInputs.cache
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Release\net8.0\linux-x64\Impostor.Server.AssemblyInfo.cs
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Release\net8.0\linux-x64\Impostor.Server.csproj.CoreCompileInputs.cache
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Release\net8.0\linux-x64\Impostor.Server.MvcApplicationPartsAssemblyInfo.cache
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Release\net8.0\linux-x64\Impostor.Server.sourcelink.json
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Release\net8.0\linux-x64\Impostor.Server.dll
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Release\net8.0\linux-x64\refint\Impostor.Server.dll
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Release\net8.0\linux-x64\Impostor.Server.xml
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Server\obj\Release\net8.0\linux-x64\Impostor.Server.pdb

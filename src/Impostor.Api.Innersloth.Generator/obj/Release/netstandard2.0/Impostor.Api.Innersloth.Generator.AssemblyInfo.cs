@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Impostor.Api.Innersloth.Generator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.10.6.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.10.6-dev+c3d56c942b21f6363d028c6a2433d04be0690c34")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.10.6-dev+b2c5945e9d39c6daeda9cfeb55841875a80dc2cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Impostor.Api.Innersloth.Generator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Impostor.Api.Innersloth.Generator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.10.6.0")]

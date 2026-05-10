@@ -21,3 +21,15 @@ C:\Users\ASUS\source\repos\Empostor\Empostor\src\NextFast.Hazel-New\Next.Hazel.A
 C:\Users\ASUS\source\repos\Empostor\Empostor\src\NextFast.Hazel-New\Next.Hazel.Abstractions\obj\Release\net8.0\refint\Next.Hazel.Abstractions.dll
 C:\Users\ASUS\source\repos\Empostor\Empostor\src\NextFast.Hazel-New\Next.Hazel.Abstractions\obj\Release\net8.0\Next.Hazel.Abstractions.pdb
 C:\Users\ASUS\source\repos\Empostor\Empostor\src\NextFast.Hazel-New\Next.Hazel.Abstractions\obj\Release\net8.0\ref\Next.Hazel.Abstractions.dll
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel.Abstractions\bin\Release\net8.0\Next.Hazel.Abstractions.deps.json
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel.Abstractions\bin\Release\net8.0\Next.Hazel.Abstractions.dll
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel.Abstractions\bin\Release\net8.0\Next.Hazel.Abstractions.pdb
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel.Abstractions\obj\Release\net8.0\Next.Hazel.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel.Abstractions\obj\Release\net8.0\Next.Hazel.Abstractions.AssemblyInfoInputs.cache
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel.Abstractions\obj\Release\net8.0\Next.Hazel.Abstractions.AssemblyInfo.cs
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel.Abstractions\obj\Release\net8.0\Next.Hazel.Abstractions.csproj.CoreCompileInputs.cache
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel.Abstractions\obj\Release\net8.0\Next.Hazel.Abstractions.sourcelink.json
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel.Abstractions\obj\Release\net8.0\Next.Hazel.Abstractions.dll
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel.Abstractions\obj\Release\net8.0\refint\Next.Hazel.Abstractions.dll
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel.Abstractions\obj\Release\net8.0\Next.Hazel.Abstractions.pdb
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel.Abstractions\obj\Release\net8.0\ref\Next.Hazel.Abstractions.dll

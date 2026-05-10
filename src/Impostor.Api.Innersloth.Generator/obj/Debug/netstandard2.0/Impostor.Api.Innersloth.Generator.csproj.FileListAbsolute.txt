@@ -15,3 +15,12 @@ C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Api.Innersloth.Generat
 C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.sourcelink.json
 C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.dll
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Api.Innersloth.Generator\bin\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.deps.json
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Api.Innersloth.Generator\bin\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.dll
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.csproj.AssemblyReference.cache
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.GeneratedMSBuildEditorConfig.editorconfig
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.AssemblyInfoInputs.cache
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.AssemblyInfo.cs
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.csproj.CoreCompileInputs.cache
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.sourcelink.json
+E:\WindowsFile\Empostor\Impostor_Unofficial\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.dll

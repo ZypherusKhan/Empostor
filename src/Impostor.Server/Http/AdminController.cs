@@ -234,10 +234,8 @@ namespace Impostor.Server.Http
                 gameCode = r.GameCode,
                 reporterName = r.ReporterName,
                 reporterFc = r.ReporterFriendCode ?? "—",
-                reporterPuid = r.ReporterPuid ?? "—",
                 reportedName = r.ReportedName ?? "—",
                 reportedFc = r.ReportedFriendCode ?? "—",
-                reportedPuid = r.ReportedPuid ?? "—",
                 reason = r.Reason.ToString(),
                 outcome = r.Outcome.ToString(),
             }));
@@ -307,6 +305,8 @@ namespace Impostor.Server.Http
         public sealed record GameCodeReq(string GameCode);
         public sealed record GamePublicReq(string GameCode, bool IsPublic);
 
+        // Usually, we will not supply other languages expect English.
+        // But if you really need other language panels, plz create a Pull Request.
         private const string LoginHtml = """
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Empostor Admin</title>
 <style>:root{--bg:#0d1117;--s:#161b22;--b:#30363d;--t:#e6edf3;--m:#7d8590;--a:#2f81f7;--r:#f85149}*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--t);font:14px/1.5 'Segoe UI',system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center}.card{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:36px 40px;width:340px}h1{font-size:18px;font-weight:700;margin-bottom:24px;text-align:center}label{display:block;font-size:12px;color:var(--m);margin-bottom:5px}input{width:100%;background:#0d1117;border:1px solid var(--b);border-radius:6px;color:var(--t);padding:9px 12px;font-size:14px;outline:none;margin-bottom:14px}input:focus{border-color:var(--a)}button{width:100%;background:var(--a);color:#fff;border:none;border-radius:6px;padding:10px;font-size:14px;font-weight:600;cursor:pointer}button:hover{opacity:.88}</style></head>

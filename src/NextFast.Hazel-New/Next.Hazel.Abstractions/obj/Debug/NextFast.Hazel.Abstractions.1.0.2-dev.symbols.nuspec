@@ -7,12 +7,12 @@
     <license type="expression">MIT</license>
     <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
     <description>Package Description</description>
-    <repository type="git" url="https://github.com/Next-Fast/Impostor.Hazel" commit="6e68747fe094113ef2104e476a88fe0eedecaa50" />
+    <repository type="git" url="https://github.com/Next-Fast/Impostor.Hazel" commit="b2c5945e9d39c6daeda9cfeb55841875a80dc2cb" />
     <dependencies>
       <group targetFramework="net8.0" />
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\Users\ASUS\source\repos\Empostor\Empostor\src\NextFast.Hazel-New\Next.Hazel.Abstractions\bin\Debug\net8.0\Next.Hazel.Abstractions.pdb" target="lib\net8.0\Next.Hazel.Abstractions.pdb" />
+    <file src="E:\WindowsFile\Empostor\Impostor_Unofficial\src\NextFast.Hazel-New\Next.Hazel.Abstractions\bin\Debug\net8.0\Next.Hazel.Abstractions.pdb" target="lib\net8.0\Next.Hazel.Abstractions.pdb" />
   </files>
 </package>

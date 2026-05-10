@@ -34,10 +34,8 @@ namespace Impostor.Server.Service.Admin
         public string GameCode { get; init; } = string.Empty;
         public string ReporterName { get; init; } = string.Empty;
         public string? ReporterFriendCode { get; init; }
-        public string? ReporterPuid { get; init; }
         public string? ReportedName { get; init; }
         public string? ReportedFriendCode { get; init; }
-        public string? ReportedPuid { get; init; }
         public ReportReasons Reason { get; init; }
         public ReportOutcome Outcome { get; init; }
     }
