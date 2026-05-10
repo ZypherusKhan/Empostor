@@ -560,7 +560,7 @@ async function fReports(){
     <td><span class="code" style="font-size:11px">${e(r.gameCode)}</span></td>
     <td><b>${e(r.reporterName)}</b><br><span class="fc">${e(r.reporterFc)}</span></td>
     <td><b>${e(r.reportedName)}</b><br><span class="fc">${e(r.reportedFc)}</span></td>
-    <td><span style="color:${rColor[r.reason]??'var(--t)';font-size:12px">${e(r.reason.replace('_',' '))}</span></td>
+    <td><span style="color:${rColor[r.reason]??'var(--t)'};font-size:12px">${e(r.reason.replace('_',' '))}</span></td>
     <td><span style="font-size:12px;color:${r.outcome==='Reported'?'var(--g)':'var(--m)'}">${e(r.outcome)}</span></td>
   </tr>`).join('');
 }

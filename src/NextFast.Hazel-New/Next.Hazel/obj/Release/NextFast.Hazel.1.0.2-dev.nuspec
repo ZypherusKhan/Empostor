@@ -7,7 +7,7 @@
     <license type="expression">MIT</license>
     <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
     <description>Package Description</description>
-    <repository type="git" url="https://github.com/Next-Fast/Impostor.Hazel" commit="503cc992ab75cf4e80ceac3004fcf4d860815cd0" />
+    <repository type="git" url="https://github.com/Next-Fast/Impostor.Hazel" commit="fde6e33d538c72cd907bcde57636beb76528af70" />
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="NextFast.Hazel.Abstractions" version="1.0.2-dev" exclude="Build,Analyzers" />

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("An api library for Impostor, an Among Us private server. You need this package to" +
     " write plugins for Impostor."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.10.6.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.10.6-dev+503cc992ab75cf4e80ceac3004fcf4d860815cd0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.10.6-dev+fde6e33d538c72cd907bcde57636beb76528af70")]
 [assembly: System.Reflection.AssemblyProductAttribute("Impostor.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Impostor.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.10.6.0")]
