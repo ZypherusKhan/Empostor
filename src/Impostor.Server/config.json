@@ -38,6 +38,6 @@
   },
   "Admin": {
     "Password": "CHANGE-ME",
-    "MarketplaceUrl": "https://raw.githubusercontent.com/HayashiUme/Empostor/master/marketplace/plugins.json"
+    "MarketplaceUrl": "https://raw.githubusercontent.com/Empostor/Empostor/master/marketplace/plugins.json"
   }
 }

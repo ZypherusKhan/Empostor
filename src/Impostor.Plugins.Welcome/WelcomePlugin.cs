@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Impostor.Plugins.Welcome;
 
-[ImpostorPlugin("cn.hayashiume.welcome", "Welcome Messages", "Impostor", "1.0.0")]
+[ImpostorPlugin("cn.Empostor.welcome", "Welcome Messages", "Impostor", "1.0.0")]
 public sealed class WelcomePlugin : PluginBase
 {
     private readonly ILogger<WelcomePlugin> _logger;

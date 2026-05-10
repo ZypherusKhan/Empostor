@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 namespace Impostor.Plugins.FriendCodeValidator
 {
     // MatchDuck offered the Friendcode safenames.txt lol
-    [ImpostorPlugin("duck.hayashiume.friendcodevalidator", "Friend Code Validator", "MatchDuck & HayashiUme", "1.0.0")]
+    [ImpostorPlugin("duck.Empostor.friendcodevalidator", "Friend Code Validator", "MatchDuck & Empostor", "1.0.0")]
     public sealed class FriendCodeValidatorPlugin : PluginBase
     {
         private readonly ILogger<FriendCodeValidatorPlugin> _logger;

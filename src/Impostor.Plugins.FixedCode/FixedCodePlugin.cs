@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Impostor.Plugins.FixedCode;
 
-[ImpostorPlugin("cn.hayashiume.fixedcode", "Fixed Room Code", "HayashiUme", "1.0.0")]
+[ImpostorPlugin("cn.Empostor.fixedcode", "Fixed Room Code", "Empostor", "1.0.0")]
 public sealed class FixedCodePlugin : PluginBase
 {
     private readonly ILogger<FixedCodePlugin> _logger;

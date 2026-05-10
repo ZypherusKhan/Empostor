@@ -16,7 +16,7 @@ namespace Impostor.Server.Http
         private static readonly string PluginsDir =
             Path.Combine(Directory.GetCurrentDirectory(), "plugins");
 
-        private const string EmpostorRepo = "HayashiUme/Empostor";
+        private const string EmpostorRepo = "Empostor/Empostor";
 
         private readonly ILogger<MarketplaceController> _logger;
         private readonly IHttpClientFactory _http;

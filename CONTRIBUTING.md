@@ -1,20 +1,91 @@
-# Contribution Guide
+# Contributing to Empostor
 
-We’re always looking for people willing to help improve Empostor.
+Thank you for your interest in contributing! We welcome bug reports, feature suggestions, and pull requests.
 
-## Code
+---
 
-- If you’re implementing a new feature or fixing an issue, please leave a comment on the relevant issue to avoid duplicating work.
-- If you’d like to implement a new feature, please create an issue first and describe the feature so we can understand it. We always welcome discussions or questions on [Discord](https://discord.gg/5fPmpxxnrc).
-- Please do not submit unnecessary changes or debug code to the repository.
-- Please try to follow the coding style of the rest of the repository. We have provided a `.editorconfig` file to ensure consistency.
-- Stylecop is enabled: Please ensure your PR compiles without warnings.
+## Getting Started
+
+### Prerequisites
+
+- [.NET 8 SDK](https://dotnet.microsoft.com/download)
+- An Among Us installation (for testing)
+- Git
+
+### Build
+
+```bash
+git clone https://github.com/your-org/Empostor.git
+cd Empostor
+dotnet build src/Impostor.sln
+```
+
+### Run locally
+
+```bash
+dotnet run --project src/Core/Impostor.Server
+```
+
+---
+
+## Reporting Issues
+
+- Search [existing issues](../../issues) before opening a new one.
+- Include your Empostor version, .NET version, and steps to reproduce.
+- For security vulnerabilities, **do not open a public issue** — contact us on Discord directly.
+
+---
 
 ## Pull Requests
 
-- Each pull request should implement only one feature to ensure the code is easy to understand.
-- Project maintainers may comment on or ask questions about your pull request. We are committed to maintaining code consistency and maintainability.
-- Each pull request should be submitted from a new branch in your repository, and the branch name should be meaningful.
-- We will do our best to respond to pull requests as soon as possible. If you think we may have missed your request, please let us know via [Discord](https://discord.gg/5fPmpxxnrc).
+- **One feature / fix per PR** — keeps review focused and history clean.
+- Branch from `master` and name your branch meaningfully (e.g. `fix/language-fallback`, `feat/report-dashboard`).
+- Write clear commit messages.
+- Ensure the project compiles without errors or StyleCop warnings before submitting.
+- If your PR adds a user-facing feature, update or add the relevant doc in `docs/`.
+- Do **not** commit `bin/`, `obj/`, or `packages.lock.json` files.
 
-If you have any questions, please feel free to contact us.
+### PR checklist
+
+- [ ] Code compiles and existing tests pass
+- [ ] No `bin/` or `obj/` files committed
+- [ ] StyleCop warnings resolved
+- [ ] Relevant docs updated (if applicable)
+- [ ] Single logical change per PR
+
+---
+
+## Code Style
+
+- Follow the existing patterns in the codebase.
+- The `.editorconfig` and `stylecop.json` files enforce formatting — let your IDE apply them.
+- Keep variable names concise but descriptive; no abbreviations unless they are widely understood (`ctx`, `cfg`, `id`).
+- Avoid unnecessary blank lines or trailing spaces.
+
+---
+
+## Writing a Plugin
+
+Plugins implement `PluginBase` + `IPluginStartup` and reference `Impostor.Api`.
+
+```csharp
+[ImpostorPlugin("com.example.myplugin", "My Plugin", "Author", "1.0.0")]
+public sealed class MyPlugin : PluginBase
+{
+    public override ValueTask EnableAsync()
+    {
+        // load config: var cfg = LoadConfig<MyConfig>();
+        return default;
+    }
+}
+```
+
+See **[docs/Writing-a-plugin.md](docs/Writing-a-plugin.md)** for the full guide.
+
+Custom commands can be registered by injecting `CommandService` and calling `Register(new MyCommand())`. The `ICommand` interface lives in `Impostor.Api.Commands` so plugins can use it without referencing `Impostor.Server`.
+
+---
+
+## Questions
+
+Join us on [Discord](https://discord.gg/5fPmpxxnrc) — we're happy to help.

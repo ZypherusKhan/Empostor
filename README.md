@@ -1,53 +1,125 @@
-# Impostor
+# Empostor
 
 [![Discord](https://img.shields.io/badge/Discord-chat-blue?style=flat-square)](https://discord.gg/5fPmpxxnrc)
+[![License](https://img.shields.io/badge/License-GPLv3-green?style=flat-square)](LICENSE)
 
-Empostor is the enhanced version of Impostor.
+**Empostor** is a feature-rich, open-source private server for Among Us, built on top of [Impostor](https://github.com/Impostor/Impostor) with significant enhancements.
 
-As Among Us is actively updated, you may want to use the latest build from the master branch if you want to play on the latest version of Among Us that supported by Empostor.
+> For the latest Among Us version, use builds from the `master` branch.  
+> For older versions, the upstream [Impostor releases](https://github.com/Impostor/Impostor/releases/) may be used, but with limited support.
 
-If you want to play an older version of Among Us, you can use [Impostor](https://github.com/Impostor/Impostor/releases/) to download it, but these versions offer limited support.
-
-We’re all for you playing [Impostor](https://github.com/Impostor/Impostor/releases/), but it clearly doesn’t support as many features as Empostor.
+---
 
 ## Features
 
-- All Among Us features are implemented. It is a full replacement for the official server.
-- Plugin and Plugin Marketplace support.
-- Server-sided anticheat.
-- Command support.
-- Friendcode support.
-- Admin Panel.
-- 11 languages support.
+| Feature | Description |
+|---------|-------------|
+| 🎮 Full AU Compatibility | Complete implementation of all Among Us game mechanics |
+| 🔌 Plugin System | Load/unload plugins with per-plugin config file generation |
+| 🏪 Plugin Marketplace | Install plugins directly from GitHub via the admin panel |
+| 🛡 Admin Panel | Web-based management at `/admin` with login protection |
+| 📊 Reports Dashboard | View and track player reports with reason and outcome |
+| 🔨 Ban System | Persistent IP and Friend Code bans surviving server restarts |
+| 💬 Command Framework | Built-in `/help`, `/setcolor`, `/weartitle`, `/note`; extensible via `ICommand` in `Impostor.Api` |
+| 🌐 16-Language Support | Server messages localised based on each player's client language |
+| 🔒 Friend Code Validation | Kicks clients with invalid/spoofed friend codes |
+| 🧩 Reactor Mod Detection | Reads connected clients' Reactor mod list, visible in admin panel |
+| 📌 Fixed Room Codes | Assign a permanent room code to a specific host's friend code |
+| 🏷 Title System | Assign display title prefixes via config or `/weartitle` command |
+| 🔐 HTTP Auth | EOS token → real-time Innersloth API → `matchmakerToken` auth flow |
+| 🐳 Docker Ready | Multi-stage Dockerfile + `docker-compose.yml` included |
 
-### Privacy Policy
-We are providing this privacy policy text (In Admin panel(`your.domain.com/admin`)) to you, the server operator. It is your responsibility to post this policy in a location that is easily and prominently accessible to all players — for example, on your server welcome page, in a dedicated announcement channel, or on a publicly visible notice board.
-You must require that all players read and acknowledge this policy before joining the game. Protecting player privacy is not just a legal and ethical duty; it also helps build trust in your server community. If you have any questions about implementing this policy or explaining it to your players, please reach out to us
+---
 
-## Installation
+## Quick Start
 
-### Client
+### Play on someone's server
 
-If you just want to play on a server hosted by someone else, you need to configure your client to connect to an Impostor server. Please go to [this website](https://impostor.github.io/Impostor) to set up your client by following the instructions for your OS there.
+Configure your Among Us client to connect to an Empostor server using the [region file generator](https://impostor.github.io/Impostor).
 
-### Server
+### Host your own server
 
-See the [docs](docs/Running-the-server.md) for instructions on how to set it up.
+See **[docs/Running-the-server.md](docs/Running-the-server.md)** for full setup instructions.
+
+For the admin panel, see **[docs/Admin-panel.md](docs/Admin-panel.md)**.
+
+For the home page, see **[docs/Hello-page.md](docs/Hello-page.md)**.
+
+#### Docker (recommended)
+
+```bash
+# 1. Set your public IP
+export PUBLIC_IP=1.2.3.4
+
+# 2. Edit the admin password
+nano data/config.json   # change Admin.Password
+
+# 3. Start
+docker compose up -d
+
+# 4. Open admin panel
+# http://your-server:22023/admin
+```
+
+#### Manual
+
+```bash
+dotnet publish src/Core/Impostor.Server/Impostor.Server.csproj -c Release -o ./publish
+cd publish
+./Impostor.Server
+```
+
+---
+
+## Plugin Marketplace
+
+The marketplace reads from a GitHub raw JSON URL (configurable in `config.json` under `Admin.MarketplaceUrl`). No separate server required — just host a `plugins.json` in any GitHub repo.
+
+See **[marketplace/plugins.json](marketplace/plugins.json)** for the format.
+
+---
+
+## Configuration
+
+See **[docs/Server-configuration.md](docs/Server-configuration.md)** for all config options.
+
+Key sections in `config.json`:
+
+```json
+{
+  "Server": { "PublicIp": "1.2.3.4", "PublicPort": 22023 },
+  "Admin":  { "Password": "changeme", "MarketplaceUrl": "https://raw.githubusercontent.com/..." },
+  "Auth":   { "EnableIpAuth": false }
+}
+```
+
+---
 
 ## Troubleshooting
 
-See [TROUBLESHOOTING](docs/TROUBLESHOOTING.md) to solve issues with the Impostor client or the server.
+See **[docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)**.
+
+---
 
 ## Contributing
 
-See [CONTRIBUTING](CONTRIBUTING.md).
+See **[CONTRIBUTING.md](CONTRIBUTING.md)**.
 
-## License
-
-This software is distributed under the **GNU GPLv3** License.
+---
 
 ## Credits
 
 - [Next.Hazel](https://github.com/willardf/Hazel-Networking)
 - [Reactor.Impostor](https://github.com/NuclearPowered/Reactor.Impostor)
-- [Fast-Impostor(Next-Impostor)](https://github.com/BunchHanpiDev/Fast-Impostor)
+- [Fast-Impostor / Next-Impostor](https://github.com/BunchHanpiDev/Fast-Impostor)
+- [Impostor](https://github.com/Impostor/Impostor) — the original project this is based on
+
+---
+
+## License
+
+Distributed under the **GNU GPLv3** License. See [LICENSE](LICENSE) for details.
+
+### Privacy Policy Notice
+
+The admin panel at `your.domain.com/admin` includes a privacy policy text. As a server operator, you are responsible for making this policy visible to all players before they join. If you have questions, contact us on Discord.

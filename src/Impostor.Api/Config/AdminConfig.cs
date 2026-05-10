@@ -7,6 +7,6 @@ namespace Impostor.Api.Config
         public string Password { get; set; } = "admin123";
 
         public string MarketplaceUrl { get; set; } =
-            "https://raw.githubusercontent.com/HayashiUme/Empostor/main/marketplace/plugins.json";
+            "https://raw.githubusercontent.com/Empostor/Empostor/main/marketplace/plugins.json";
     }
 }

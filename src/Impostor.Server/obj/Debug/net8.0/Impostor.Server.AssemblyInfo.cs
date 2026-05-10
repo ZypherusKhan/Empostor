@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © AeonLucid 2020")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.10.6.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.10.6-dev+bf1c5a4b01ef931c2b3ad1f9208e3d2fa2e6d738")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.10.6-dev+6b8fb538aea21886c3d82f996b2cf8930b6e4ec7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Impostor.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Impostor.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.10.6.0")]
