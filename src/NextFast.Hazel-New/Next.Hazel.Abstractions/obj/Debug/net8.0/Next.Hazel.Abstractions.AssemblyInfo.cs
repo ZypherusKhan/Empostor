@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Impostor,Next-Fast")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.2.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2-dev+b2c5945e9d39c6daeda9cfeb55841875a80dc2cb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2-dev+503cc992ab75cf4e80ceac3004fcf4d860815cd0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Next.Hazel.Abstractions")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Next.Hazel.Abstractions")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.2.0")]

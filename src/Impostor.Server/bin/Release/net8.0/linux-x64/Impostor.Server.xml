@@ -97,6 +97,19 @@
             The JSON format is the same as before — array of plugin objects with versions[].
             </summary>
         </member>
+        <member name="M:Impostor.Server.Net.Client.OnReportPlayerAsync(Next.Hazel.Abstractions.IMessageReader)">
+            <summary>
+                Triggered when a client reports another player.
+            </summary>
+        </member>
+        <member name="M:Impostor.Server.Net.Client.OnQueryPlatformIds(Impostor.Api.Games.GameCode)">
+            <summary>
+                Triggered when the connected client requests the PlatformSpecificData.
+            </summary>
+            <param name="code">
+                The GameCode of the game whose platform id's are checked.
+            </param>
+        </member>
         <member name="P:Impostor.Server.Net.ClientBase.FriendCode">
             <inheritdoc />
         </member>

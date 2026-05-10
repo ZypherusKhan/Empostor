@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "elp1CN1FNFU=",
+  "dgSpecHash": "9GUf3gYimnQ=",
   "success": true,
   "projectFilePath": "E:\\WindowsFile\\Empostor\\Impostor_Unofficial\\src\\Impostor.Server\\Impostor.Server.csproj",
   "expectedPackageFiles": [
@@ -52,21 +52,21 @@
     "C:\\Users\\ASUS\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.6.2\\system.identitymodel.tokens.jwt.7.6.2.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
-    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.host.linux-arm\\8.0.26\\microsoft.netcore.app.host.linux-arm.8.0.26.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.26\\microsoft.netcore.app.runtime.win-x64.8.0.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\8.0.26\\microsoft.netcore.app.runtime.linux-x64.8.0.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-arm\\8.0.26\\microsoft.netcore.app.runtime.linux-arm.8.0.26.nupkg.sha512",
-    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.host.osx-x64\\8.0.26\\microsoft.netcore.app.host.osx-x64.8.0.26.nupkg.sha512",
-    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-arm\\8.0.26\\microsoft.aspnetcore.app.runtime.linux-arm.8.0.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-arm64\\8.0.26\\microsoft.netcore.app.runtime.linux-arm64.8.0.26.nupkg.sha512",
-    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\8.0.26\\microsoft.netcore.app.host.linux-x64.8.0.26.nupkg.sha512",
-    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.26\\microsoft.aspnetcore.app.runtime.win-x64.8.0.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.runtime.osx-x64\\8.0.26\\microsoft.netcore.app.runtime.osx-x64.8.0.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.26\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.26.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.26\\microsoft.aspnetcore.app.runtime.win-x64.8.0.26.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\8.0.26\\microsoft.aspnetcore.app.runtime.linux-x64.8.0.26.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-arm\\8.0.26\\microsoft.aspnetcore.app.runtime.linux-arm.8.0.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-arm64\\8.0.26\\microsoft.aspnetcore.app.runtime.linux-arm64.8.0.26.nupkg.sha512",
-    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.host.linux-arm64\\8.0.26\\microsoft.netcore.app.host.linux-arm64.8.0.26.nupkg.sha512",
-    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.26\\microsoft.netcore.app.runtime.win-x64.8.0.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.osx-x64\\8.0.26\\microsoft.aspnetcore.app.runtime.osx-x64.8.0.26.nupkg.sha512",
-    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\8.0.26\\microsoft.aspnetcore.app.runtime.linux-x64.8.0.26.nupkg.sha512"
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\8.0.26\\microsoft.netcore.app.host.linux-x64.8.0.26.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.host.linux-arm\\8.0.26\\microsoft.netcore.app.host.linux-arm.8.0.26.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.host.linux-arm64\\8.0.26\\microsoft.netcore.app.host.linux-arm64.8.0.26.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.host.osx-x64\\8.0.26\\microsoft.netcore.app.host.osx-x64.8.0.26.nupkg.sha512"
   ],
   "logs": []
 }

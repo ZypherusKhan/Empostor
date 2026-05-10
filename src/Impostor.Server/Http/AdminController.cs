@@ -63,7 +63,9 @@ namespace Impostor.Server.Http
             }
             Response.Cookies.Append("impostor_admin", password, new CookieOptions
             {
-                HttpOnly = true, SameSite = SameSiteMode.Strict, MaxAge = TimeSpan.FromHours(8),
+                HttpOnly = true,
+                SameSite = SameSiteMode.Strict,
+                MaxAge = TimeSpan.FromHours(8),
             });
             return Redirect("/admin");
         }
@@ -80,12 +82,15 @@ namespace Impostor.Server.Http
             var (ib, fb) = _bans.Stats();
             return Ok(new
             {
-                uptime = Fmt(up), uptimeSeconds = (long)up.TotalSeconds,
+                uptime = Fmt(up),
+                uptimeSeconds = (long)up.TotalSeconds,
                 startTime = StartTime.ToString("yyyy-MM-dd HH:mm:ss") + " UTC",
-                totalGames = games.Count, totalPlayers = _clientManager.Clients.Count(),
+                totalGames = games.Count,
+                totalPlayers = _clientManager.Clients.Count(),
                 publicGames = games.Count(g => g.IsPublic),
                 activeGames = games.Count(g => g.GameState == GameStates.Started),
-                bannedIps = ib, bannedFriendCodes = fb,
+                bannedIps = ib,
+                bannedFriendCodes = fb,
                 runtime = RuntimeInformation.FrameworkDescription,
                 os = RuntimeInformation.OSDescription,
                 pid = Environment.ProcessId,
@@ -251,14 +256,21 @@ namespace Impostor.Server.Http
 
         private static object Snap(IGame g) => new
         {
-            code = GameCodeParser.IntToGameName(g.Code), state = g.GameState.ToString(),
-            isPublic = g.IsPublic, playerCount = g.PlayerCount, maxPlayers = g.Options.MaxPlayers,
-            map = g.Options.Map.ToString(), impostors = g.Options.NumImpostors,
-            host = g.Host?.Client.Name ?? "—", hostFc = g.Host?.Client.FriendCode ?? "—",
+            code = GameCodeParser.IntToGameName(g.Code),
+            state = g.GameState.ToString(),
+            isPublic = g.IsPublic,
+            playerCount = g.PlayerCount,
+            maxPlayers = g.Options.MaxPlayers,
+            map = g.Options.Map.ToString(),
+            impostors = g.Options.NumImpostors,
+            host = g.Host?.Client.Name ?? "—",
+            hostFc = g.Host?.Client.FriendCode ?? "—",
             players = g.Players.Select(p => new
             {
-                id = p.Client.Id, name = p.Client.Name,
-                friendCode = p.Client.FriendCode ?? "—", isHost = p.IsHost,
+                id = p.Client.Id,
+                name = p.Client.Name,
+                friendCode = p.Client.FriendCode ?? "—",
+                isHost = p.IsHost,
                 platform = p.Client.PlatformSpecificData?.PlatformName ?? "Unknown",
                 ip = p.Client.Connection?.EndPoint?.Address?.ToString() ?? "—",
             }).ToList(),
@@ -269,7 +281,9 @@ namespace Impostor.Server.Http
             var reactor = c.GetReactorMods();
             return new
             {
-                id = c.Id, name = c.Name, friendCode = c.FriendCode ?? "—",
+                id = c.Id,
+                name = c.Name,
+                friendCode = c.FriendCode ?? "—",
                 gameVersion = c.GameVersion.ToString(),
                 platform = c.PlatformSpecificData?.PlatformName ?? "Unknown",
                 inGame = c.Player != null,
@@ -280,7 +294,9 @@ namespace Impostor.Server.Http
                     protocolVersion = reactor.ProtocolVersion,
                     mods = System.Linq.Enumerable.Select(reactor.Mods, m => new
                     {
-                        id = m.Id, version = m.Version, required = m.RequiredOnAllClients,
+                        id = m.Id,
+                        version = m.Version,
+                        required = m.RequiredOnAllClients,
                     }).ToArray(),
                 },
             };
@@ -291,7 +307,7 @@ namespace Impostor.Server.Http
         private static object Err(string msg) => new { error = msg };
         private static string Fmt(TimeSpan t)
         {
-            if (t.TotalDays >= 1)  return $"{(int)t.TotalDays}d {t.Hours}h {t.Minutes}m";
+            if (t.TotalDays >= 1) return $"{(int)t.TotalDays}d {t.Hours}h {t.Minutes}m";
             if (t.TotalHours >= 1) return $"{t.Hours}h {t.Minutes}m {t.Seconds}s";
             return $"{t.Minutes}m {t.Seconds}s";
         }
@@ -305,8 +321,6 @@ namespace Impostor.Server.Http
         public sealed record GameCodeReq(string GameCode);
         public sealed record GamePublicReq(string GameCode, bool IsPublic);
 
-        // Usually, we will not supply other languages expect English.
-        // But if you really need other language panels, plz create a Pull Request.
         private const string LoginHtml = """
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Empostor Admin</title>
 <style>:root{--bg:#0d1117;--s:#161b22;--b:#30363d;--t:#e6edf3;--m:#7d8590;--a:#2f81f7;--r:#f85149}*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--t);font:14px/1.5 'Segoe UI',system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center}.card{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:36px 40px;width:340px}h1{font-size:18px;font-weight:700;margin-bottom:24px;text-align:center}label{display:block;font-size:12px;color:var(--m);margin-bottom:5px}input{width:100%;background:#0d1117;border:1px solid var(--b);border-radius:6px;color:var(--t);padding:9px 12px;font-size:14px;outline:none;margin-bottom:14px}input:focus{border-color:var(--a)}button{width:100%;background:var(--a);color:#fff;border:none;border-radius:6px;padding:10px;font-size:14px;font-weight:600;cursor:pointer}button:hover{opacity:.88}</style></head>
@@ -556,7 +570,6 @@ function showDetail(clientJson){
   let body=`<div class="ig" style="border-radius:6px;overflow:hidden;margin-bottom:14px">
     <div class="ik">Name</div><div class="iv">${e(c.name)}</div>
     <div class="ik">Friend Code</div><div class="iv">${e(c.friendCode)}</div>
-    <div class="ik">PUID</div><div class="iv">${e(c.puid||'—')}</div>
     <div class="ik">IP</div><div class="iv">${e(c.ip)}</div>
     <div class="ik">Client ID</div><div class="iv">${c.id}</div>
     <div class="ik">Version</div><div class="iv">${e(c.gameVersion)}</div>
