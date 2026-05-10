@@ -1,1 +1,11 @@
+.idea/
+
+.vscode/
+
+src/Impostor.Server/obj/
+src/Impostor.Server/bin/
+
+src/Impostor.Api/obj/
+src/Impostor.Api/bin/
+
 .vs/
