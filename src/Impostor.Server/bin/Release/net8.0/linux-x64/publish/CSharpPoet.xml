@@ -1,0 +1,605 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpPoet</name>
+    </assembly>
+    <members>
+        <member name="T:CSharpPoet.CSharpAttribute">
+            <summary>
+            Represents an attribute that is associated to a member.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.CSharpAttribute.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CSharpAttribute.#ctor(System.String)">
+            <summary>
+            Initializes an empty attribute.
+            </summary>
+            <param name="name">The name of the custom attribute.</param>
+        </member>
+        <member name="M:CSharpPoet.CSharpAttribute.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="T:CSharpPoet.CSharpAttribute.IArgument">
+            <summary>
+            Represents an argument of <see cref="T:CSharpPoet.CSharpAttribute"/>.
+            </summary>
+        </member>
+        <member name="T:CSharpPoet.CSharpAttribute.Parameter">
+            <summary>
+            Represents a parameter of an attribute constructor.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.CSharpAttribute.Parameter.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.CSharpAttribute.Parameter.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CSharpAttribute.Parameter.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="T:CSharpPoet.CSharpAttribute.Property">
+            <summary>
+            Represents a property assignment of an attribute constructor.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.CSharpAttribute.Property.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.CSharpAttribute.Property.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CSharpAttribute.Property.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="T:CSharpPoet.CSharpBlankLine">
+            <summary>
+            Represents a blank line.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CSharpBlankLine.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="T:CSharpPoet.CSharpComment">
+            <summary>
+            Represents a C# comment.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.CSharpComment.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CSharpComment.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="T:CSharpPoet.CSharpMultiLineComment">
+            Represents a multiline C# comment.
+        </member>
+        <member name="M:CSharpPoet.CSharpMultiLineComment.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="T:CSharpPoet.CSharpFile">
+            <summary>
+            Represents a C# file.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.CSharpFile.Header">
+            <summary>
+            Gets or sets header.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.CSharpFile.Usings">
+            <summary>
+            Gets usings.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.CSharpFile.Namespace">
+            <summary>
+            Gets or sets namespace.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CSharpFile.#ctor">
+            <summary>
+            Initializes <see cref="T:CSharpPoet.CSharpFile"/>.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CSharpFile.#ctor(System.String)">
+            <summary>
+            Initializes <see cref="T:CSharpPoet.CSharpFile"/> with a namespace.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CSharpFile.#ctor(CSharpPoet.CSharpNamespace)">
+            <summary>
+            Initializes <see cref="T:CSharpPoet.CSharpFile"/> with a <see cref="T:CSharpPoet.CSharpNamespace"/>.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CSharpFile.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="T:CSharpPoet.CSharpFile.IMember">
+            <summary>
+            Represents a member of <see cref="T:CSharpPoet.CSharpFile"/>.
+            </summary>
+        </member>
+        <member name="T:CSharpPoet.ICSharpMember">
+            <summary>
+            Represents all write-able C# members.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.ICSharpMember.WriteTo(CSharpPoet.CodeWriter)">
+            <summary>
+            Writes the the member to <paramref name="writer"/>.
+            </summary>
+            <param name="writer">The <see cref="T:CSharpPoet.CodeWriter"/> to write to.</param>
+        </member>
+        <member name="T:CSharpPoet.IHasSeparator">
+            <summary>
+            Member that has to be separated from others using <see cref="P:CSharpPoet.IHasSeparator.Separator"/>.
+            Used by <see cref="M:CSharpPoet.CodeWriter.WriteMembers``1(System.Collections.Generic.IList{``0})"/>.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.IHasSeparator.Separator">
+            <summary>
+            Gets the separator.
+            </summary>
+        </member>
+        <member name="T:CSharpPoet.CSharpMemberExtensions">
+            <summary>
+            Utility extensions for <see cref="T:CSharpPoet.ICSharpMember"/>.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CSharpMemberExtensions.WriteTo(CSharpPoet.ICSharpMember,System.IO.TextWriter)">
+            <summary>
+            Writes the <paramref name="member"/> to <paramref name="writer"/>.
+            </summary>
+            <param name="member">The member to be written.</param>
+            <param name="writer">The writer to be written to.</param>
+        </member>
+        <member name="M:CSharpPoet.CSharpMemberExtensions.WriteTo(CSharpPoet.ICSharpMember,System.String)">
+            <summary>
+            Writes the <paramref name="member"/> to <paramref name="filePath"/>
+            </summary>
+            <param name="member">The member to be written.</param>
+            <param name="filePath">The path of the file to be written to.</param>
+        </member>
+        <member name="T:CSharpPoet.CSharpMember`1">
+            <summary>
+            Represents a C# member that has children members.
+            </summary>
+            <typeparam name="TMember">The type of children members.</typeparam>
+        </member>
+        <member name="P:CSharpPoet.CSharpMember`1.Members">
+            <summary>
+            Gets or sets the children members.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CSharpMember`1.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.CSharpMember`1.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.CSharpMember`1.Add(`0)">
+            <summary>
+            Adds a member.
+            </summary>
+            <param name="member">The member to add.</param>
+        </member>
+        <member name="M:CSharpPoet.CSharpMember`1.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.CSharpMember`1.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.CSharpNamespace.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.CSharpUsing.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="T:CSharpPoet.CSharpBaseType`1">
+            <summary>
+            Represents a C# type like enum or class-likes (class, interface, struct, record).  
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CSharpBaseType`1.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.CSharpEnum.Member.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="T:CSharpPoet.CSharpType.IMember">
+            <summary>
+            Represents a member of <see cref="T:CSharpPoet.CSharpType"/>.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CSharpField.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.CSharpMethod.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.CSharpParameter.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.CSharpProperty.WriteTo(CSharpPoet.CodeWriter)">
+            <inheritdoc />
+        </member>
+        <member name="T:CSharpPoet.Traits.IHasAttributes">
+            <summary>
+            Represents a member that has attributes.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.Traits.IHasAttributes.Attributes">
+            <summary>
+            Gets or sets a list of attributes assigned to this member.
+            </summary>
+        </member>
+        <member name="T:CSharpPoet.CodeWriter">
+            <summary>
+            IndentedTextWriter with additional utilities for writing C# source files.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CodeWriter.#ctor(System.IO.TextWriter,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.CodeWriter.OutputTabs">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.CodeWriter.Write(CSharpPoet.Visibility)">
+            <summary>
+            Writes a <see cref="T:CSharpPoet.Visibility"/>.
+            </summary>
+            <param name="visibility">The visibility to write.</param>
+        </member>
+        <member name="M:CSharpPoet.CodeWriter.WriteMembers``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            Writes a list of members respecting their separators.
+            </summary>
+            <param name="members">Member list to be written.</param>
+            <typeparam name="T">The type of members.</typeparam>
+        </member>
+        <member name="M:CSharpPoet.CodeWriter.MultilineComment">
+            <summary>
+            Starts a multiline comment scope.
+            </summary>
+            <returns>Disposable <see cref="T:CSharpPoet.CodeWriter.MultilineCommentScope"/>.</returns>
+        </member>
+        <member name="M:CSharpPoet.CodeWriter.XmlComment">
+            <summary>
+            Starts a xml comment scope.
+            </summary>
+            <returns>Disposable <see cref="T:CSharpPoet.CodeWriter.XmlCommentScope"/>.</returns>
+        </member>
+        <member name="M:CSharpPoet.CodeWriter.Indent">
+            <summary>
+            Starts an indent scope.
+            </summary>
+            <returns>Disposable <see cref="T:CSharpPoet.CodeWriter.IndentScope"/>.</returns>
+        </member>
+        <member name="M:CSharpPoet.CodeWriter.Block">
+            <summary>
+            Starts a block scope.
+            </summary>
+            <returns>Disposable <see cref="T:CSharpPoet.CodeWriter.BlockScope"/>.</returns>
+        </member>
+        <member name="T:CSharpPoet.CodeWriter.MultilineCommentScope">
+            <summary>
+            Represents a block scope. Dispose to end it.
+            </summary>
+            <remarks>You can only have one at a time.</remarks>
+        </member>
+        <member name="M:CSharpPoet.CodeWriter.MultilineCommentScope.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:CSharpPoet.CodeWriter.XmlCommentScope">
+            <summary>
+            Represents a xml comment scope. Dispose to end it.
+            </summary>
+            <remarks>You can only have one at a time.</remarks>
+        </member>
+        <member name="M:CSharpPoet.CodeWriter.XmlCommentScope.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:CSharpPoet.CodeWriter.IndentScope">
+            <summary>
+            Represents an indent scope. Dispose to end it.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CodeWriter.IndentScope.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:CSharpPoet.CodeWriter.BlockScope">
+            <summary>
+            Represents a block scope. Dispose to end it.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.CodeWriter.BlockScope.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.CodeWriter.SanitizeIdentifier(System.String)">
+            <summary>
+            Sanitize an identifier so its usable in a C# source file.
+            </summary>
+            <param name="identifier">Identifier to be sanitized.</param>
+            <returns>Sanitized identifier.</returns>
+        </member>
+        <member name="T:CSharpPoet.IndentedTextWriter">
+            <summary>
+            TextWriter with automatic indentation. 
+            </summary>
+        </member>
+        <member name="F:CSharpPoet.IndentedTextWriter.DefaultTabString">
+            <summary>
+            Gets default tab string.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.#ctor(System.IO.TextWriter,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="P:CSharpPoet.IndentedTextWriter.Encoding">
+            <summary>
+            Gets encoding.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.IndentedTextWriter.NewLine">
+            <summary>
+            Gets or sets new line.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.IndentedTextWriter.IndentLevel">
+            <summary>
+            Gets or sets the indentation level.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.IndentedTextWriter.TabsPending">
+            <summary>
+            Gets the value indicating whether indentation should be written out.
+            </summary>
+        </member>
+        <member name="P:CSharpPoet.IndentedTextWriter.InnerWriter">
+            <summary>
+            Gets the inner TextWriter.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Close">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Flush">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.FlushAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.OutputTabs">
+            <summary>
+            Outputs tabs to the underlying <see cref="T:System.IO.TextWriter"/> based on the current <see cref="P:CSharpPoet.IndentedTextWriter.IndentLevel"/>.
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.OutputTabsAsync">
+            <summary>
+            Asynchronously outputs tabs to the underlying <see cref="T:System.IO.TextWriter"/> based on the current <see cref="P:CSharpPoet.IndentedTextWriter.IndentLevel"/>.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Write(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Write(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Write(System.Char)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Write(System.Char[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Write(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Write(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Write(System.Single)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Write(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Write(System.Int64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Write(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Write(System.String,System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Write(System.String,System.Object,System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.Write(System.String,System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteAsync(System.Char)">
+            <summary>
+            Asynchronously writes the specified <see cref="T:System.Char"/> to the underlying <see cref="T:System.IO.TextWriter"/>, inserting
+            tabs at the start of every line.
+            </summary>
+            <param name="value">The <see cref="T:System.Char"/> to write.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteAsync(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Asynchronously writes the specified number of <see cref="T:System.Char"/>s from the specified buffer
+            to the underlying <see cref="T:System.IO.TextWriter"/>, starting at the specified index, and outputting tabs at the
+            start of every new line.
+            </summary>
+            <param name="buffer">The array to write from.</param>
+            <param name="index">Index in the array to stort writing at.</param>
+            <param name="count">The number of characters to write.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteAsync(System.String)">
+            <summary>
+            Asynchronously writes the specified string to the underlying <see cref="T:System.IO.TextWriter"/>, inserting tabs at the
+            start of every line.
+            </summary>
+            <param name="value">The string to write.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLineNoTabs(System.String)">
+            <summary>
+            Writes a string followed by a line terminator to the text string or stream without indentation.
+            </summary>
+            <param name="value">The string to write. If value is null, only the line terminator is written.</param>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLineNoTabsAsync(System.String)">
+            <summary>
+            Asynchronously writes the specified string to the underlying <see cref="T:System.IO.TextWriter"/> without inserting tabs.
+            </summary>
+            <param name="s">The string to write.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.Char)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.Char[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.Double)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.Single)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.Int64)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.String,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.String,System.Object,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.String,System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLine(System.UInt32)">
+            <inheritdoc />
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLineAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLineAsync(System.Char)">
+            <summary>
+            Asynchronously writes the specified <see cref="T:System.Char"/> to the underlying <see cref="T:System.IO.TextWriter"/> followed by a line terminator, inserting tabs
+            at the start of every line.
+            </summary>
+            <param name="value">The character to write.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLineAsync(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Asynchronously writes the specified number of characters from the specified buffer followed by a line terminator,
+            to the underlying <see cref="T:System.IO.TextWriter"/>, starting at the specified index within the buffer, inserting tabs at the start of every line.
+            </summary>
+            <param name="buffer">The buffer containing characters to write.</param>
+            <param name="index">The index within the buffer to start writing at.</param>
+            <param name="count">The number of characters to write.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:CSharpPoet.IndentedTextWriter.WriteLineAsync(System.String)">
+            <summary>
+            Asynchronously writes the specified string followed by a line terminator to the underlying <see cref="T:System.IO.TextWriter"/>, inserting
+            tabs at the start of every line.
+            </summary>
+            <param name="value">The string to write.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:CSharpPoet.ListExtensions">
+            <summary>
+            Utilities for <see cref="T:System.Collections.Generic.IList`1"/>
+            </summary>
+        </member>
+        <member name="M:CSharpPoet.ListExtensions.AddRange``1(System.Collections.Generic.IList{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Adds the elements of the specified collection to the end of the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <param name="list">The list for the items to be added to.</param>
+            <param name="items">The collection whose elements should be added to the end of the <see cref="T:System.Collections.Generic.IList`1"/>. The collection itself cannot be null, but it can contain elements that are null, if type T is a reference type</param>
+            <typeparam name="T">The type of elements in the list.</typeparam>
+            <exception cref="T:System.ArgumentNullException"><paramref name="list"></paramref> or <paramref name="items"></paramref> is null.</exception>
+        </member>
+        <member name="T:CSharpPoet.Visibility">
+            <summary>
+            Visibility of a C# member.
+            </summary>
+        </member>
+        <member name="F:CSharpPoet.Visibility.Public">
+            Access is not restricted.
+        </member>
+        <member name="F:CSharpPoet.Visibility.Protected">
+            Access is limited to the containing class or types derived from the containing class.
+        </member>
+        <member name="F:CSharpPoet.Visibility.Internal">
+            Access is limited to the current assembly.
+        </member>
+        <member name="F:CSharpPoet.Visibility.ProtectedInternal">
+            Access is limited to the current assembly or types derived from the containing class.
+        </member>
+        <member name="F:CSharpPoet.Visibility.Private">
+            Access is limited to the containing type.
+        </member>
+        <member name="F:CSharpPoet.Visibility.PrivateProtected">
+            Access is limited to the containing class or types derived from the containing class within the current assembly. Available since C# 7.2.
+        </member>
+        <member name="F:CSharpPoet.Visibility.File">
+            The declared type is only visible in the current source file. File scoped types are generally used for source generators.
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+                Reserved to be used by the compiler for tracking metadata.
+                This class should not be used by developers in source code.
+            </summary>
+            <remarks>
+                This definition is provided by the <i>IsExternalInit</i> NuGet package (https://www.nuget.org/packages/IsExternalInit).
+                Please see https://github.com/manuelroemer/IsExternalInit for more information.
+            </remarks>
+        </member>
+    </members>
+</doc>

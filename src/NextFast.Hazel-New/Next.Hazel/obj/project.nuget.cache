@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "MSDlB+WOtaQ=",
+  "success": true,
+  "projectFilePath": "E:\\WindowsFile\\Empostor\\Impostor_Unofficial\\src\\NextFast.Hazel-New\\Next.Hazel\\Next.Hazel.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\bouncycastle.cryptography\\2.6.1\\bouncycastle.cryptography.2.6.1.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.6\\microsoft.extensions.dependencyinjection.abstractions.9.0.6.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.extensions.objectpool\\8.0.1\\microsoft.extensions.objectpool.8.0.1.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\serilog\\4.3.1-dev-02373\\serilog.4.3.1-dev-02373.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Impostor.Server</name>
+    </assembly>
+    <members>
+        <member name="M:Impostor.Server.Events.EventManager.RegisterListener``1(``0,System.Func{System.Func{System.Threading.Tasks.Task},System.Threading.Tasks.Task})">
+            <inheritdoc />
+        </member>
+        <member name="M:Impostor.Server.Events.EventManager.IsRegistered``1">
+            <inheritdoc />
+        </member>
+        <member name="M:Impostor.Server.Events.EventManager.CallAsync``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Impostor.Server.Events.EventManager.GetHandlers``1">
+            <summary>
+                Get all the event listeners for the given event type.
+            </summary>
+            <returns>The event listeners.</returns>
+        </member>
+        <member name="M:Impostor.Server.IHazelConnectionExtensions.CustomDisconnectAsync(Impostor.Api.Net.IHazelConnection,Impostor.Api.Innersloth.DisconnectReason,System.String)">
+            <summary>
+            Disconnect a connection using a custom message.
+            </summary>
+            <param name="connection">The connection to disconnect.</param>
+            <param name="reason">The reason to disconnect with.</param>
+            <param name="message">The custom message to disconnect with if <paramref name="reason"/> is <see cref="F:Impostor.Api.Innersloth.DisconnectReason.Custom"/>.</param>
+            <returns>Task that should be awaited to ensure disconnection.</returns>
+        </member>
+        <member name="M:Impostor.Server.TypeExtensions.GetFriendlyName(System.Type)">
+            <summary>
+                Get the friendly name for the type.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The friendly name.</returns>
+        </member>
+        <member name="M:Impostor.Server.TypeExtensions.GetFriendlyName(System.Reflection.MethodBase,System.Boolean)">
+            <summary>
+                Get the friendly name for the method.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="showParameters">True if the parameters should be included in the name.</param>
+            <returns>Friendly name of the method.</returns>
+        </member>
+        <member name="M:Impostor.Server.Http.GamesController.Index(System.Int32,Impostor.Api.Innersloth.GameKeywords,System.Int32,System.Net.Http.Headers.AuthenticationHeaderValue)">
+            <summary>
+            Legacy game list endpoint (Among Us &lt; 16.0.0).
+            </summary>
+        </member>
+        <member name="M:Impostor.Server.Http.GamesController.Post(System.Int32)">
+            <summary>
+            Legacy: get server hosting a specific game.
+            </summary>
+        </member>
+        <member name="M:Impostor.Server.Http.GamesController.Put">
+            <summary>
+            Legacy: get server address to host a new game.
+            </summary>
+        </member>
+        <member name="M:Impostor.Server.Http.GamesController.Show(System.Int32)">
+            <summary>
+            Get a specific game by code.
+            </summary>
+        </member>
+        <member name="M:Impostor.Server.Http.GamesController.ShowFilteredLobbies">
+            <summary>
+            Filtered lobby list (Among Us 16.0.0+).
+            No support filter conditions on the latest version.
+            </summary>
+        </member>
+        <member name="M:Impostor.Server.Http.GamesController.Summary">
+            <summary>
+            JSON summary of all active games, consumed by the admin panel.
+            </summary>
+        </member>
+        <member name="T:Impostor.Server.Http.ListingManager">
+            <summary>
+            Perform game listing filtering.
+            </summary>
+        </member>
+        <member name="M:Impostor.Server.Http.ListingManager.FindListings(Microsoft.AspNetCore.Http.HttpContext,System.Int32,System.Int32,Impostor.Api.Innersloth.GameKeywords,Impostor.Api.Innersloth.GameVersion,System.Int32)">
+            <summary>
+            Find listings that match the requested settings.
+            </summary>
+            <param name="ctx">The context of this http request.</param>
+            <param name="map">The selected maps.</param>
+            <param name="impostorCount">The amount of impostors. 0 is any.</param>
+            <param name="language">Chat language of the game.</param>
+            <param name="gameVersion">Game version of the client.</param>
+            <param name="maxListings">Maximum amount of games to return.</param>
+            <returns>Listings that match the required criteria.</returns>
+        </member>
+        <member name="M:Impostor.Server.Http.MarketplaceController.ListPlugins">
+            <summary>
+            Fetch plugins.json directly from GitHub (or any raw HTTPS URL) and relay it to the panel.
+            The JSON format is the same as before — array of plugin objects with versions[].
+            </summary>
+        </member>
+        <member name="P:Impostor.Server.Net.ClientBase.FriendCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Impostor.Server.Net.Inner.Objects.GameManager.InnerGameManager.GetGameLogicTag``1(``0)">
+            <summary>
+                Finds the tag of the registered <see cref="T:Impostor.Server.Net.Inner.Objects.GameManager.Logic.GameLogicComponent"/>.
+            </summary>
+            <param name="logic">Instance to search for.</param>
+            <typeparam name="T">Intance type to search for.</typeparam>
+            <returns>Tag of the registered <see cref="T:Impostor.Server.Net.Inner.Objects.GameManager.Logic.GameLogicComponent"/>, or -1 if not found.</returns>
+        </member>
+        <member name="P:Impostor.Server.Net.State.ClientPlayer.Impostor#Api#Net#IClientPlayer#Client">
+            <inheritdoc />
+        </member>
+        <member name="P:Impostor.Server.Net.State.ClientPlayer.Impostor#Api#Net#IClientPlayer#Game">
+            <inheritdoc />
+        </member>
+        <member name="P:Impostor.Server.Net.State.ClientPlayer.Impostor#Api#Net#IClientPlayer#Character">
+            <inheritdoc />
+        </member>
+        <member name="F:Impostor.Server.Net.State.Game.InvalidClient">
+            <summary>
+                Used for global object, spawned by the host.
+            </summary>
+        </member>
+        <member name="F:Impostor.Server.Net.State.Game.CurrentClient">
+            <summary>
+                Used internally to set the OwnerId to the current ClientId.
+                i.e: <code>ownerId = ownerId == -3 ? this.ClientId : ownerId;</code>
+            </summary>
+        </member>
+        <member name="F:Impostor.Server.Net.State.Game.ServerOwned">
+            <summary>
+                Used to list objects that are managed by the game server.
+            </summary>
+        </member>
+        <member name="F:Impostor.Server.Net.State.Game.MinServerNetId">
+            <summary>
+                The first NetId that is considered as a server owned Network ID that the client will not allocate by default.
+            </summary>
+        </member>
+        <member name="T:Impostor.Server.Net.State.GameNet">
+            <inheritdoc />
+        </member>
+        <member name="T:Impostor.Server.Recorder.PacketRecorder">
+            <summary>
+                Records all packets received in <see cref="M:Impostor.Server.Recorder.ClientRecorder.HandleMessageAsync(Next.Hazel.Abstractions.IMessageReader,Next.Hazel.Abstractions.MessageType)" />.
+            </summary>
+        </member>
+        <member name="T:Impostor.Server.Recorder.ServerReplayVersion">
+            <summary>
+                Version of the server replay data format.
+            </summary>
+        </member>
+        <member name="F:Impostor.Server.Recorder.ServerReplayVersion.Initial">
+            <summary>
+                Initial version.
+            </summary>
+        </member>
+        <member name="F:Impostor.Server.Recorder.ServerReplayVersion.Latest">
+            <summary>
+                Latest version.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,17 @@
+C:\Users\ASUS\Downloads\ImpostorFast-Final\output\src\Impostor.Api.Innersloth.Generator\bin\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.deps.json
+C:\Users\ASUS\Downloads\ImpostorFast-Final\output\src\Impostor.Api.Innersloth.Generator\bin\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.dll
+C:\Users\ASUS\Downloads\ImpostorFast-Final\output\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.csproj.AssemblyReference.cache
+C:\Users\ASUS\Downloads\ImpostorFast-Final\output\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Downloads\ImpostorFast-Final\output\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.AssemblyInfoInputs.cache
+C:\Users\ASUS\Downloads\ImpostorFast-Final\output\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.AssemblyInfo.cs
+C:\Users\ASUS\Downloads\ImpostorFast-Final\output\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Downloads\ImpostorFast-Final\output\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.dll
+C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Api.Innersloth.Generator\bin\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.deps.json
+C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Api.Innersloth.Generator\bin\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.dll
+C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.AssemblyInfo.cs
+C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.sourcelink.json
+C:\Users\ASUS\source\repos\Empostor\Empostor\src\Impostor.Api.Innersloth.Generator\obj\Debug\netstandard2.0\Impostor.Api.Innersloth.Generator.dll

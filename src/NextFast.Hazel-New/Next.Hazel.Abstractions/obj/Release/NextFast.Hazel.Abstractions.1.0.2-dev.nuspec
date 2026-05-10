@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>NextFast.Hazel.Abstractions</id>
+    <version>1.0.2-dev</version>
+    <authors>Impostor,Next-Fast</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <description>Package Description</description>
+    <repository type="git" url="https://github.com/Next-Fast/Impostor.Hazel" commit="c3d56c942b21f6363d028c6a2433d04be0690c34" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\ASUS\source\repos\Empostor\Empostor\src\NextFast.Hazel-New\Next.Hazel.Abstractions\bin\Release\net8.0\Next.Hazel.Abstractions.dll" target="lib\net8.0\Next.Hazel.Abstractions.dll" />
+  </files>
+</package>
