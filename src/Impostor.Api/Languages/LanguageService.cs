@@ -104,6 +104,11 @@ public sealed class LanguageService
         WriteIfMissing("ja.json", DefaultJa);
         WriteIfMissing("pt.json", DefaultPt);
         WriteIfMissing("pt_BR.json", DefaultPtBr);
+        WriteIfMissing("es.json", DefaultEs);
+        WriteIfMissing("it.json", DefaultIt);
+        WriteIfMissing("nl.json", DefaultNl);
+        WriteIfMissing("fil.json", DefaultFil);
+        WriteIfMissing("ga.json", DefaultGa);
     }
 
     private void WriteIfMissing(string fileName, string content)
@@ -324,4 +329,110 @@ public sealed class LanguageService
   "welcome.join": "Bem-vindo, {0}! Código de amigo: {1} | Sala: {2}"
 }
 """;
+
+    private const string DefaultEs = """
+{
+  "command.unknown": "Comando desconocido /{0}. Escribe /help para ver la lista.",
+  "command.error": "Error al ejecutar /{0}.",
+  "command.usage": "Uso: /{0}",
+  "command.help.list": "=== Comandos ===",
+  "command.help.entry": "/{0} — {1}",
+  "command.help.unknown": "Comando desconocido: /{0}",
+  "command.help.aliases": "Alias: {0}",
+  "command.note.host_only": "Solo el anfitrión puede usar /note.",
+  "command.note.cleared": "Nota eliminada.",
+  "command.note.set": "Nota establecida: {0}",
+  "command.color.invalid": "ID de color inválido. Rango válido: 0–17.",
+  "command.color.set": "Color cambiado a {0} ({1}).",
+  "command.title.too_long": "Título demasiado largo. Máximo 12 caracteres.",
+  "command.title.cleared": "Título eliminado.",
+  "command.title.set": "Título establecido: {0}",
+  "welcome.join": "Bienvenido, {0}! Código de amigo: {1} | Sala: {2}"
+}
+""";
+
+    private const string DefaultIt = """
+{
+  "command.unknown": "Comando sconosciuto /{0}. Digita /help per la lista.",
+  "command.error": "Errore durante l'esecuzione di /{0}.",
+  "command.usage": "Utilizzo: /{0}",
+  "command.help.list": "=== Comandi ===",
+  "command.help.entry": "/{0} — {1}",
+  "command.help.unknown": "Comando sconosciuto: /{0}",
+  "command.help.aliases": "Alias: {0}",
+  "command.note.host_only": "Solo l'host può usare /note.",
+  "command.note.cleared": "Nota rimossa.",
+  "command.note.set": "Nota impostata: {0}",
+  "command.color.invalid": "ID colore non valido. Intervallo: 0–17.",
+  "command.color.set": "Colore cambiato in {0} ({1}).",
+  "command.title.too_long": "Titolo troppo lungo. Max 12 caratteri.",
+  "command.title.cleared": "Titolo rimosso.",
+  "command.title.set": "Titolo impostato: {0}",
+  "welcome.join": "Benvenuto, {0}! Codice amico: {1} | Stanza: {2}"
+}
+""";
+
+    private const string DefaultNl = """
+{
+  "command.unknown": "Onbekend commando /{0}. Typ /help voor een lijst.",
+  "command.error": "Fout bij uitvoeren van /{0}.",
+  "command.usage": "Gebruik: /{0}",
+  "command.help.list": "=== Commando's ===",
+  "command.help.entry": "/{0} — {1}",
+  "command.help.unknown": "Onbekend commando: /{0}",
+  "command.help.aliases": "Aliassen: {0}",
+  "command.note.host_only": "Alleen de host kan /note gebruiken.",
+  "command.note.cleared": "Notitie verwijderd.",
+  "command.note.set": "Notitie ingesteld: {0}",
+  "command.color.invalid": "Ongeldig kleur-ID. Geldig bereik: 0–17.",
+  "command.color.set": "Kleur gewijzigd naar {0} ({1}).",
+  "command.title.too_long": "Titel te lang. Maximaal 12 tekens.",
+  "command.title.cleared": "Titel verwijderd.",
+  "command.title.set": "Titel ingesteld: {0}",
+  "welcome.join": "Welkom, {0}! Vriendcode: {1} | Kamer: {2}"
+}
+""";
+
+    private const string DefaultFil = """
+{
+  "command.unknown": "Hindi kilalang command /{0}. I-type ang /help para sa listahan.",
+  "command.error": "May error sa pagpapatakbo ng /{0}.",
+  "command.usage": "Paggamit: /{0}",
+  "command.help.list": "=== Mga Command ===",
+  "command.help.entry": "/{0} — {1}",
+  "command.help.unknown": "Hindi kilalang command: /{0}",
+  "command.help.aliases": "Mga Alias: {0}",
+  "command.note.host_only": "Ang host lang ang maaaring gumamit ng /note.",
+  "command.note.cleared": "Natanggal ang tala.",
+  "command.note.set": "Naitakda ang tala: {0}",
+  "command.color.invalid": "Di-wastong color ID. Valid na hanay: 0–17.",
+  "command.color.set": "Binago ang kulay sa {0} ({1}).",
+  "command.title.too_long": "Masyadong mahaba ang pamagat. Max 12 karakter.",
+  "command.title.cleared": "Natanggal ang pamagat.",
+  "command.title.set": "Naitakda ang pamagat: {0}",
+  "welcome.join": "Maligayang pagdating, {0}! Friend code: {1} | Silid: {2}"
+}
+""";
+
+    private const string DefaultGa = """
+{
+  "command.unknown": "Ordú anaithnid /{0}. Clóscríobh /help le haghaidh liosta.",
+  "command.error": "Earráid agus /{0} á rith.",
+  "command.usage": "Úsáid: /{0}",
+  "command.help.list": "=== Orduithe ===",
+  "command.help.entry": "/{0} — {1}",
+  "command.help.unknown": "Ordú anaithnid: /{0}",
+  "command.help.aliases": "Ailíasanna: {0}",
+  "command.note.host_only": "Ní féidir ach leis an óstach /note a úsáid.",
+  "command.note.cleared": "Nóta glanadh.",
+  "command.note.set": "Nóta socraithe: {0}",
+  "command.color.invalid": "ID datha neamhbhailí. Raon bailí: 0–17.",
+  "command.color.set": "Dath athraithe go {0} ({1}).",
+  "command.title.too_long": "Teideal ró-fhada. Uasmhéid 12 carachtar.",
+  "command.title.cleared": "Teideal bainte.",
+  "command.title.set": "Teideal socraithe: {0}",
+  "welcome.join": "Fáilte, {0}! Cód cara: {1} | Seomra: {2}"
+}
+""";
+
 }
