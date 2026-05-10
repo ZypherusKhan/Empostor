@@ -75,7 +75,10 @@ namespace Impostor.Api.Net
         /// </summary>
         PlatformSpecificData PlatformSpecificData { get; }
 
-        /// <summary>玩家好友码（格式 "Name#XXXX"）。HTTP 认证（/api/user）成功后由 AuthCacheService 填充。</summary>
+        /// <summary>
+        /// Mainly feature of Empostor
+        /// the ONLY code for a player and easy to remenber.
+        /// </summary>
         string? FriendCode { get; set; }
 
         ValueTask<bool> ReportCheatAsync(CheatContext context, CheatCategory category, string message);

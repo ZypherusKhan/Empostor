@@ -6,15 +6,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using Impostor.Api.Config;
 using Impostor.Api.Events.Managers;
-using Impostor.Api.Innersloth;
 using Impostor.Api.Net;
 using Impostor.Api.Net.Manager;
-using Next.Hazel;
 using Impostor.Server.Events.Client;
 using Impostor.Server.Net.Factories;
+using Impostor.Server.Service.Auth;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Impostor.Server.Service.Auth;
+using Next.Hazel;
 
 namespace Impostor.Server.Net.Manager
 {
@@ -75,7 +74,6 @@ namespace Impostor.Server.Net.Manager
             PlatformSpecificData? platformSpecificData,
             string? matchmakerToken = null)
         {
-            // ── 版本检查 ─────────────────────────────────────────────────────
             var versionCompare = _compatibilityManager.CanConnectToServer(clientVersion);
             if (versionCompare == ICompatibilityManager.VersionCompareResult.ServerTooOld
                 && _compatibilityConfig.AllowFutureGameVersions && platformSpecificData != null)
@@ -110,10 +108,6 @@ namespace Impostor.Server.Net.Manager
             if (name.Length > 10) { await connection.CustomDisconnectAsync(DisconnectReason.Custom, DisconnectMessages.UsernameLength); return; }
             if (string.IsNullOrWhiteSpace(name)) { await connection.CustomDisconnectAsync(DisconnectReason.Custom, DisconnectMessages.UsernameIllegalCharacters); return; }
 
-            // ── FriendCode 查找 ──────────────────────────────────────────────
-            // 主路径：通过 matchmakerToken 精确查找（HTTP 认证成功的客户端）
-            // 回退路径：通过 IP 查找（匹配失败时尝试）
-            // 均失败：FriendCode = null（与原版 ImpostorFast 行为相同）
             string? friendCode = null;
             var clientIp = connection.EndPoint?.Address;
 
@@ -128,7 +122,6 @@ namespace Impostor.Server.Net.Manager
             }
             else if (clientIp != null)
             {
-                // IP 回退（HTTP 认证未完成或 token 丢失时的保障）
                 var ipAuth = _authCache.FindByIp(clientIp);
                 if (ipAuth != null)
                 {
@@ -147,7 +140,6 @@ namespace Impostor.Server.Net.Manager
                 }
             }
 
-            // ── 创建并注册客户端 ─────────────────────────────────────────────
             var client = _clientFactory.Create(connection, name, clientVersion, language, chatMode, platformSpecificData);
             client.FriendCode = string.IsNullOrEmpty(friendCode) ? null : friendCode;
 

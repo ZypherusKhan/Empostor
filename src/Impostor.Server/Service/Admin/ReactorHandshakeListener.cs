@@ -1,13 +1,11 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Impostor.Api.Events;
 using Impostor.Api.Events.Client;
-using Impostor.Api.Net;
 using Microsoft.Extensions.Logging;
 
 namespace Impostor.Server.Service.Admin
 {
-    // From Impostor.Reactor
+    // From Reactor.Impostor
     internal sealed class ReactorHandshakeListener : IEventListener
     {
         // "reactor" in little-endian ASCII occupies the first 7 bytes after game version
@@ -127,6 +125,7 @@ namespace Impostor.Server.Service.Admin
             Version = version;
             RequiredOnAllClients = requiredOnAllClients;
         }
+
         public string Id { get; }
 
         public string Version { get; }

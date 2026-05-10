@@ -5,8 +5,6 @@ using Impostor.Api;
 using Impostor.Api.Config;
 using Impostor.Api.Events.Managers;
 using Impostor.Api.Games;
-using Impostor.Api.Innersloth;
-using Impostor.Api.Innersloth;
 using Impostor.Api.Net;
 using Impostor.Api.Net.Custom;
 using Impostor.Api.Net.Messages;
@@ -17,7 +15,6 @@ using Impostor.Server.Net.Manager;
 using Impostor.Server.Service.Admin;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using Next.Hazel;
 
 namespace Impostor.Server.Net
@@ -433,8 +430,8 @@ namespace Impostor.Server.Net
             var reportedClient = _clientManager.Clients.FirstOrDefault(c => c.Id == reportedClientId);
 
             _logger.LogWarning(
-                "[Report] {Reporter} ({ReporterFriendCode}) reported {Reported} ({ReportedFriendCode}) Reason={Reason} Game={Game}",
-                Name, string.IsNullOrEmpty(reportedClient.FriendCode) ? "unknown" : FriendCode,
+                "[Report] {Reporter} ({ReporterFriendCode}) reported {Reported} ({ReporterFriendCode}) Reason={Reason} Game={Game}",
+                Name, string.IsNullOrEmpty(FriendCode) ? "unknown" : FriendCode,
                 reportedClient?.Name ?? "unknown", reportedClient?.FriendCode ?? "unknown",
                 reason, gameCode);
 
