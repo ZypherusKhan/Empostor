@@ -1,6 +1,7 @@
 # Empostor
 
 [![Discord](https://img.shields.io/badge/Discord-chat-blue?style=flat-square)](https://discord.gg/5fPmpxxnrc)
+[![QQ](https://img.shields.io/badge/QQ-Group-black?style=flat-square)](https://qm.qq.com/q/GeX3Q0Ft0k)
 [![License](https://img.shields.io/badge/License-GPLv3-green?style=flat-square)](LICENSE)
 
 **Empostor** is a feature-rich, open-source private server for Among Us, built on top of [Impostor](https://github.com/Impostor/Impostor) with significant enhancements.
