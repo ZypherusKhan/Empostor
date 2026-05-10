@@ -30,8 +30,8 @@ public sealed class LanguageService
         [Language.Italian] = "it",
         [Language.Japanese] = "ja",
         [Language.Spanish] = "es",
-        [Language.SChinese] = "zh",
-        [Language.TChinese] = "zh",
+        [Language.SChinese] = "zh_CN",
+        [Language.TChinese] = "zh_TW",
         [Language.Irish] = "ga",
     };
 
@@ -46,7 +46,6 @@ public sealed class LanguageService
     {
         var code = LangCodeMap.TryGetValue(language, out var c) ? c : FallbackLang;
         var text = Lookup(key, code) ?? Lookup(key, FallbackLang) ?? key;
-        _logger.LogInformation($"Key={key}, Text={text}, Langauge={language.ToString()}");
         return new LanguageString(text);
     }
 
