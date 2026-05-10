@@ -142,6 +142,7 @@ namespace Impostor.Server
 
                     // Admin
                     services.AddSingleton<BanStore>();
+                    services.AddSingleton<ReportStore>();
                     services.AddSingleton<IEventListener, BanEnforcementListener>();
                     services.AddSingleton<IEventListener, ReactorHandshakeListener>();
 

@@ -1,3 +1,4 @@
+using Impostor.Api.Commands;
 using System.Threading;
 using System.Threading.Tasks;
 using Impostor.Server.Commands.Commands;

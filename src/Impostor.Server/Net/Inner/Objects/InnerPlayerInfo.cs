@@ -128,8 +128,9 @@ namespace Impostor.Server.Net.Inner.Objects
                 Tasks[i].Serialize(writer);
             }
 
-            writer.Write(string.Empty); // FriendCode
-            writer.Write(string.Empty); // PUID
+            var owner = Game.Players.FirstOrDefault(p => p.Client.Id == ClientId);
+            writer.Write(owner?.Client.FriendCode ?? string.Empty);
+            writer.Write(owner?.Client.Puid ?? string.Empty);
             return new ValueTask<bool>(true);
         }
 

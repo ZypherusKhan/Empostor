@@ -26,19 +26,22 @@ namespace Impostor.Server.Http
         private readonly IClientManager _clientManager;
         private readonly BanStore _bans;
         private readonly AdminConfig _config;
+        private readonly ReportStore _reportStore;
 
         public AdminController(
             ILogger<AdminController> logger,
             IGameManager gameManager,
             IClientManager clientManager,
             BanStore bans,
-            IOptions<AdminConfig> config)
+            IOptions<AdminConfig> config,
+            ReportStore reportStore)
         {
             _logger = logger;
             _gameManager = gameManager;
             _clientManager = clientManager;
             _bans = bans;
             _config = config.Value;
+            _reportStore = reportStore;
         }
 
         private bool IsAuthenticated()
@@ -221,6 +224,25 @@ namespace Impostor.Server.Http
             return Ok(new { gameCode = req.GameCode, isPublic = req.IsPublic });
         }
 
+        [HttpGet("/api/admin/reports")]
+        public IActionResult GetReports()
+        {
+            if (!IsAuthenticated()) return Unauthorized();
+            return Ok(_reportStore.GetRecent(200).Select(r => new
+            {
+                time = r.Time.ToString("yyyy-MM-dd HH:mm:ss"),
+                gameCode = r.GameCode,
+                reporterName = r.ReporterName,
+                reporterFc = r.ReporterFriendCode ?? "—",
+                reporterPuid = r.ReporterPuid ?? "—",
+                reportedName = r.ReportedName ?? "—",
+                reportedFc = r.ReportedFriendCode ?? "—",
+                reportedPuid = r.ReportedPuid ?? "—",
+                reason = r.Reason.ToString(),
+                outcome = r.Outcome.ToString(),
+            }));
+        }
+
         private IGame? FindGame(string code)
         {
             try { return _gameManager.Find(new GameCode(code.ToUpperInvariant())); }
@@ -288,7 +310,16 @@ namespace Impostor.Server.Http
         private const string LoginHtml = """
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Empostor Admin</title>
 <style>:root{--bg:#0d1117;--s:#161b22;--b:#30363d;--t:#e6edf3;--m:#7d8590;--a:#2f81f7;--r:#f85149}*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--t);font:14px/1.5 'Segoe UI',system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center}.card{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:36px 40px;width:340px}h1{font-size:18px;font-weight:700;margin-bottom:24px;text-align:center}label{display:block;font-size:12px;color:var(--m);margin-bottom:5px}input{width:100%;background:#0d1117;border:1px solid var(--b);border-radius:6px;color:var(--t);padding:9px 12px;font-size:14px;outline:none;margin-bottom:14px}input:focus{border-color:var(--a)}button{width:100%;background:var(--a);color:#fff;border:none;border-radius:6px;padding:10px;font-size:14px;font-weight:600;cursor:pointer}button:hover{opacity:.88}</style></head>
-<body><div class="card"><h1>🛡 Empostor Admin</h1><form method="POST" action="/admin/login"><label>Password</label><input type="password" name="password" autofocus placeholder="Enter admin password"><button type="submit">Sign in</button><!--ERR--></form></div></body></html>
+<body><div class="card"><h1>🛡 Empostor Admin</h1><form method="POST" action="/admin/login"><label>Password</label><input type="password" name="password" autofocus placeholder="Enter admin password"><button type="submit">Sign in</button><!--ERR--></form></div><div id="cl-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;align-items:center;justify-content:center">
+  <div style="background:var(--s);border:1px solid var(--b);border-radius:10px;width:520px;max-width:95vw;max-height:85vh;overflow-y:auto;padding:20px">
+    <div style="display:flex;align-items:center;margin-bottom:16px">
+      <h2 style="margin:0;flex:1" id="cl-modal-title">Client Detail</h2>
+      <button onclick="closeDetail()" style="background:none;border:none;color:var(--m);font-size:18px;cursor:pointer">✕</button>
+    </div>
+    <div id="cl-modal-body"></div>
+  </div>
+</div>
+</body></html>
 """;
 
         private const string AdminHtml = """
@@ -365,6 +396,7 @@ button:hover{opacity:.85}.bp{background:var(--a);color:#fff}.bd{background:var(-
   <div class="ni" onclick="nav('ud')">🔄 Updates</div>
   <div class="nsep"></div>
   <div class="nlbl">System</div>
+  <div class="ni" onclick="nav('rp')">📋 Reports</div>
   <div class="ni" onclick="nav('si')">⚙️ Server Info</div>
 </nav>
 <ct>
@@ -448,6 +480,14 @@ button:hover{opacity:.85}.bp{background:var(--a);color:#fff}.bd{background:var(-
   <div id="ud-box"><div class="empty">Click Check to query GitHub.</div></div>
   <button class="bp" style="margin-top:12px" onclick="fUpdate()">Check for Updates</button>
 </div></div>
+<div id="p-rp" class="pnl">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+    <h2 style="margin:0">📋 Player Reports</h2>
+    <button class="bp bsm" onclick="fReports()">Refresh</button>
+  </div>
+  <table><thead><tr><th>Time</th><th>Game</th><th>Reporter</th><th>Reported</th><th>Reason</th><th>Outcome</th></tr></thead>
+  <tbody id="rp-t"><tr><td colspan="6" class="empty">Loading…</td></tr></tbody></table>
+</div>
 <div id="p-si" class="pnl"><h2>Server Info</h2><div class="ig" id="si-d"></div></div>
 </ct>
 </main>
@@ -496,6 +536,51 @@ async function doMsg(){const c=document.getElementById('ms-c').value.trim().toUp
 async function doEnd(){const c=document.getElementById('ge-c').value.trim().toUpperCase();if(!c)return msg('ge-r',false,'Code required');if(!confirm(`End game ${c}?`))return;const{ok,data}=await api('POST','/api/admin/game/end',{gameCode:c});msg('ge-r',ok,ok?`Ended (${data.playersKicked} kicked)`:(data.error??'Error'));if(ok)fGamesEnd();}
 async function qend(c){if(!confirm(`End ${c}?`))return;await api('POST','/api/admin/game/end',{gameCode:c});fGamesEnd();}
 async function doPrivacy(){const c=document.getElementById('gp-c').value.trim().toUpperCase(),p=document.getElementById('gp-v').value==='true';if(!c)return msg('gp-r',false,'Code required');const{ok,data}=await api('POST','/api/admin/game/public',{gameCode:c,isPublic:p});msg('gp-r',ok,ok?`${c} → ${p?'public':'private'}`:(data.error??'Error'));}
+async function fReports(){
+  const{data:rs}=await api('GET','/api/admin/reports');
+  const tb=document.getElementById('rp-t');
+  if(!rs.length){tb.innerHTML='<tr><td colspan="6" class="empty">No reports yet.</td></tr>';return;}
+  const rColor={Cheating_Hacking:'var(--r)',Harassment_Misconduct:'var(--y)',InappropriateName:'var(--m)',InappropriateChat:'var(--m)'};
+  tb.innerHTML=rs.map(r=>`<tr>
+    <td style="font-size:11px;color:var(--m);white-space:nowrap">${e(r.time)}</td>
+    <td><span class="code" style="font-size:11px">${e(r.gameCode)}</span></td>
+    <td><b>${e(r.reporterName)}</b><br><span class="fc">${e(r.reporterFc)}</span></td>
+    <td><b>${e(r.reportedName)}</b><br><span class="fc">${e(r.reportedFc)}</span></td>
+    <td><span style="color:${rColor[r.reason]??'var(--t)';font-size:12px">${e(r.reason.replace('_',' '))}</span></td>
+    <td><span style="font-size:12px;color:${r.outcome==='Reported'?'var(--g)':'var(--m)'}">${e(r.outcome)}</span></td>
+  </tr>`).join('');
+}
+function showDetail(clientJson){
+  const c=JSON.parse(clientJson);
+  document.getElementById('cl-modal-title').textContent=c.name+' — Detail';
+  let body=`<div class="ig" style="border-radius:6px;overflow:hidden;margin-bottom:14px">
+    <div class="ik">Name</div><div class="iv">${e(c.name)}</div>
+    <div class="ik">Friend Code</div><div class="iv">${e(c.friendCode)}</div>
+    <div class="ik">PUID</div><div class="iv">${e(c.puid||'—')}</div>
+    <div class="ik">IP</div><div class="iv">${e(c.ip)}</div>
+    <div class="ik">Client ID</div><div class="iv">${c.id}</div>
+    <div class="ik">Version</div><div class="iv">${e(c.gameVersion)}</div>
+    <div class="ik">Platform</div><div class="iv">${e(c.platform)}</div>
+    <div class="ik">Language</div><div class="iv">${e(c.language||'—')}</div>
+    <div class="ik">In Game</div><div class="iv">${c.inGame?'<span class="code">'+e(c.gameCode)+'</span>':'No'}</div>
+  </div>`;
+  if(c.reactor){
+    body+=`<h3 style="font-size:13px;color:var(--m);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">🧩 Reactor Mods (${c.reactor.mods.length})</h3>`;
+    if(c.reactor.mods.length){
+      body+=`<table><thead><tr><th>Mod ID</th><th>Version</th><th>Required</th></tr></thead><tbody>`;
+      body+=c.reactor.mods.map(m=>`<tr><td style="font-family:monospace;font-size:12px">${e(m.id)}</td><td style="font-size:12px">${e(m.version)}</td><td style="font-size:12px">${m.required?'<span style="color:var(--y)">Yes</span>':'No'}</td></tr>`).join('');
+      body+=`</tbody></table>`;
+      body+=`<div style="font-size:11px;color:var(--m);margin-top:6px">Protocol: ${e(c.reactor.protocolVersion)}</div>`;
+    } else {
+      body+=`<div style="font-size:12px;color:var(--m)">No mods.</div>`;
+    }
+  }
+  document.getElementById('cl-modal-body').innerHTML=body;
+  const modal=document.getElementById('cl-modal');
+  modal.style.display='flex';
+  modal.onclick=ev=>{if(ev.target===modal)closeDetail();};
+}
+function closeDetail(){document.getElementById('cl-modal').style.display='none';}
 fetchStatus();setInterval(fetchStatus,5000);setInterval(()=>{if(document.visibilityState==='visible')refreshTab();},3000);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')fetchStatus();});refreshTab();
 </script>
 <!-- Privacy Policy Overlay -->

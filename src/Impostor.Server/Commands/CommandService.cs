@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
+using Impostor.Api.Commands;
 namespace Impostor.Server.Commands;
 
 public sealed class CommandService
